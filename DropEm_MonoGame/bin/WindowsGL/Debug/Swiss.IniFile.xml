@@ -1,0 +1,1568 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Swiss.IniFile</name>
+    </assembly>
+    <members>
+        <member name="T:Swiss.IniFileType">
+            <summary>
+            Type of the IniFile.
+            </summary>
+        </member>
+        <member name="F:Swiss.IniFileType.Transient">
+            <summary>
+            The IniFile is a temporary one and will not be saved,
+            so a Dirty bit warning should be suppressed.
+            </summary>
+        </member>
+        <member name="F:Swiss.IniFileType.Mutable">
+            <summary>
+            The IniFile can be changed and should be saved,
+            so a Dirty bit warning should be given.
+            </summary>
+        </member>
+        <member name="T:Swiss.IniFile">
+            <summary cref="T:System.Collections.CollectionBase">
+            The IniFile class, based on the CollectionBase Class
+            </summary>
+        </member>
+        <member name="F:Swiss.IniFile.IniFileEncoding">
+            <summary>
+            The Default Encoding for the IniFile.
+            
+            It defaults to UTF-8 without the BOM/Byte Order Mark (0xEF,0xBB,0xBF) 
+            
+            See http://en.wikipedia.org/wiki/Byte_order_mark
+            
+            Note: this rules out TextPad as editor as it can only 
+            read and display UTF-8 with characters from a single codepage.
+            Notepad on the other hand does not have any problems.        /// 
+            </summary>
+        </member>
+        <member name="M:Swiss.IniFile.#cctor">
+            <summary cref="P:Swiss.IniFile.CommentPadding">
+            The Constructor.
+            </summary>
+        </member>
+        <member name="M:Swiss.IniFile.#ctor">
+            <summary cref="P:Swiss.IniFile.CommentPadding">
+            The Constructor. 
+            
+            Sets CommentPadding to the 72th Column.
+            </summary>
+        </member>
+        <member name="M:Swiss.IniFile.#ctor(Swiss.IniFileType)">
+            <summary cref="P:Swiss.IniFile.CommentPadding">
+            The Constructor. 
+            
+            Sets the Transient bit.
+            </summary>
+        </member>
+        <member name="M:Swiss.IniFile.#ctor(System.String)">
+            <summary cref="P:Swiss.IniFile.CommentPadding">
+            The Constructor. 
+            </summary>
+        </member>
+        <member name="M:Swiss.IniFile.AdjustCaption(System.String@)">
+            <summary>
+            Adjust window caption by replacing [appname] by AppTitle.
+            </summary>
+            <param name="caption">The window caption to changed</param>
+        </member>
+        <member name="M:Swiss.IniFile.AdjustCaption(System.String)">
+            <summary>
+            Adjust window caption by replacing [appname] by AppTitle.
+            </summary>
+            <param name="caption">The window caption to changed</param>
+            <returns>The changed caption</returns>
+        </member>
+        <member name="M:Swiss.IniFile.Clear">
+            <summary>
+            Clear the IniFile.
+            </summary>
+        </member>
+        <member name="M:Swiss.IniFile.DeleteKey(System.String,System.String)">
+            <summary>
+            Delete a Key from the IniFile.
+            </summary>
+            <param name="aSection">The Section of the Key</param>
+            <param name="aKey">The Key to remove</param>
+        </member>
+        <member name="M:Swiss.IniFile.Dispose">
+            <summary>
+            Simple Dispose only emitting a warning...
+            
+             But ignore the Dirty Bit if the IniFile is a Transient one.
+            </summary>
+        </member>
+        <member name="M:Swiss.IniFile.EraseSection(System.String)">
+            <summary>
+            Erase a complete Section
+            </summary>
+            <param name="aSection">The Section to Remove</param>
+        </member>
+        <member name="M:Swiss.IniFile.System#IDisposable#Dispose">
+            <summary>
+            IDisposable
+            </summary>
+        </member>
+        <member name="M:Swiss.IniFile.LoadFromFile(System.String)">
+            <summary>
+            Loads the IniCollection from a File.
+            </summary>
+            <param name="aFileName">the name of the file to load</param>
+        </member>
+        <member name="M:Swiss.IniFile.Read``1(System.String,System.String,``0)">
+            <summary>
+            Search for a Key and return its Object Value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="aSection"></param>
+            <param name="aKey"></param>
+            <param name="aDefaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadBool(System.String,System.String,System.Boolean)">
+            <summary>
+            Search for a Key and return its Boolean Value.
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aDefaultValue">The Default value</param>
+            <returns>Return the Default Value when it's not a valid Boolean</returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadByte(System.String,System.String,System.Byte)">
+            <summary>
+            Search for a Key and return its Int32 Value. 
+            Return the Default Value when it's not a valid Int32.
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aDefaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadChecksum(System.String,System.String)">
+            <summary>
+            Reads a Struct and returns the Checksum.
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <returns>The Checksum</returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadComment(System.String,System.String)">
+            <summary>
+            Search for a Key and return its Comment if present. 
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <returns>The comment if any</returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadDate(System.String,System.String,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <remarks>Reading a Date as a String may result in regional problems</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aDefaultValue">The Default value</param>
+            <returns>Return the Default Value when it's not a valid Boolean</returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadDateTime(System.String,System.String,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <remarks>Reading a DateTime as a String may result in regional problems</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aDefaultValue">The default value</param>
+            <returns>The value from the IniFile or the default value</returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadDictionary``2(System.String,System.String)">
+            <summary>
+            Reads a Dictionary like:
+            
+            [Filters]
+            Filters=1
+            Filter_001.Name=name
+            Filter_001.Value=value
+            </summary>
+            <typeparam name="T">Type of the Key</typeparam>
+            <typeparam name="U">Type of the Value</typeparam>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <returns>A List&lt;Strings&gt; of delimited values.</returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadDictionary``2(System.String,System.String,System.Func{System.String,``1})">
+            <summary>
+            Reads a Dictionary like:
+            
+            [Filters]
+            Filters=1
+            Filter_001.Name=name
+            Filter_001.Value=value
+            
+            Optionally the aValue can be parsed from a String.
+            
+            Example for System.Color values: '(aParse) => Color.FromName(aParse)'.
+            </summary>
+            <typeparam name="T">Type of the Key</typeparam>
+            <typeparam name="U">Type of the Value</typeparam>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aParse">A Lambda Expression that parses the Value to a String</param>
+            <returns>A List&lt;Strings&gt; of delimited values.</returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadDouble(System.String,System.String,System.Double)">
+            <summary>
+            Search for a Key and return its Double Value.
+            Return the Default Value when it's not a valid double.
+            </summary>
+            <remarks>Reading a floating point as a String may result in
+            regional problems due to differences in Decimal Separator</remarks>
+            <remarks>Added replacement of both '.'and ',' by NumberDecimalSeparator</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aDefaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadEncryptedString(System.String,System.String,System.String,Swiss.SaltAndKeys)">
+            <summary>
+            Reads and Encrypted String and Decrypts it.
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aDefault">The Default (Unencrypted) Value</param>
+            <param name="aSaltAndKeys">Salt and Keys for EncryptIt</param>
+            <returns>The Decrypted String</returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadEnum``1(System.String,System.String,System.Enum)">
+            <summary>
+            Search for a Key and return its Enum Value.
+            Return the Default Value when it's not a valid Enum.
+            </summary>
+            <typeparam name="T">The type of the Enum</typeparam>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aDefaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadInteger(System.String,System.String,System.Int32)">
+            <summary>
+            Search for a Key and return its Int32 Value. 
+            Return the Default Value when it's not a valid Int32.
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aDefaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadInteger(System.String,System.String,System.Int64)">
+            <summary>
+            Search for a Key and return its Int64 Value. 
+            Return the Default Value when it's not a valid Int32.
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aDefaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadList(System.String,System.String,System.Char)">
+            <summary>
+            Returns a List&lt;Strings&gt; of delimited values.
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aDelimiter">The Delimiter between values</param>
+            <returns>A List&lt;Strings&gt; of delimited values.</returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadObject(System.String,System.String,System.Object)">
+            <summary>
+            Search for a Key and return its Object Value.
+            
+            Note: aDefaultValue must of of the Correct type (or default())?
+            </summary>
+            <param name="aSection"></param>
+            <param name="aKey"></param>
+            <param name="aDefaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadSection(System.String)">
+            <summary>
+            Read all key=value pairs from a section.
+            </summary>
+            <param name="aSection">The Section</param>
+            <returns>The key=value pairs</returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadSectionKeys(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="aSection">The Section</param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadSections">
+            <summary>
+            Read all section sames.
+            </summary>
+            <returns>The Section names</returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadSectionValues(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="aSection">The Section</param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadString(System.String,System.String,System.String)">
+            <summary>
+            Search for a Key and return its Value.
+            Return the Default Value when the Key is not found.
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aDefaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadStruct(System.String,System.String,System.Byte[]@)">
+            <summary>
+            Reads a Hex Structure into a Byte Array.
+            </summary>
+            <remarks>Calling CalcCheckSum is not very efficient but the code is always the same</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <returns>The checksum</returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadStruct(System.String,System.String,System.UInt16[]@)">
+            <summary>
+            Reads a Hex Structure into a UInt16 Array.
+            </summary>
+            <remarks>Calling CalcCheckSum is not very efficient but the code is always the same</remarks>
+            <remarks>There might be some Endian problems (Delphi Hottack32 data saved as '0908'
+            is read back as 0x0908 instead of 0x0809!</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <returns>The checksum</returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadStruct(System.String,System.String,System.UInt32[]@)">
+            <summary>
+            Reads a Hex Structure into a UInt32 Array.
+            </summary>
+            <remarks>Calling CalcCheckSum is not very efficient but the code is always the same</remarks>
+            <remarks>There might be some Endian problems (Delphi Hottack32 data saved as '0908'
+            is read back as 0x0908 instead of 0x0809!</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <returns>The checksum</returns>
+        </member>
+        <member name="M:Swiss.IniFile.ReadTime(System.String,System.String,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <remarks>Reading a Time as a String may result in regional problems</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aDefault"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.Rename(System.String)">
+            <summary>
+            Renames an IniFile and removes the old one.
+            </summary>
+            <param name="aFileName">The new FileName</param>
+        </member>
+        <member name="M:Swiss.IniFile.SaveToFile(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="aFileName"></param>
+        </member>
+        <member name="M:Swiss.IniFile.SectionExists(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="aSection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.TestStatus(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="tested"></param>
+        </member>
+        <member name="M:Swiss.IniFile.UpdateFile">
+            <summary>
+            Updates the file on disk.
+            </summary>
+        </member>
+        <member name="M:Swiss.IniFile.ValueExists(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="aSection"></param>
+            <param name="aKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.Write``1(System.String,System.String,``0,System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="aSection"></param>
+            <param name="aKey"></param>
+            <param name="aValue"></param>
+            <param name="aComment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.WriteBool(System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Write a Boolean as a String.
+            </summary>
+            <remarks>Writing a Boolean as a String may result in regional problems</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>
+        </member>
+        <member name="M:Swiss.IniFile.WriteByte(System.String,System.String,System.Byte,System.String)">
+            <summary>
+            Write an Byte value.
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>
+        </member>
+        <member name="M:Swiss.IniFile.WriteComment(System.String,System.String,System.String)">
+            <summary>
+            Write/Updates a Comment if the Key Exists.
+            </summary>
+            <remarks>Writing a Comment</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aComment">Optional Comment</param>
+        </member>
+        <member name="M:Swiss.IniFile.WriteDate(System.String,System.String,System.DateTime,System.String)">
+            <summary>
+            Write the Date part of a DateTime as a String.
+            </summary>
+            <remarks>Writing a Date as a String may result in regional problems</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>
+        </member>
+        <member name="M:Swiss.IniFile.WriteDateTime(System.String,System.String,System.DateTime,System.String)">
+            <summary>
+            Write the DateTime as a String.
+            </summary>
+            <remarks>Writing a DateTime as a String may result in regional problems</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>
+        </member>
+        <member name="M:Swiss.IniFile.WriteDictionary``2(System.String,System.String,System.Collections.Generic.Dictionary{``0,``1})">
+            <summary>
+            Write a Dictionary like:
+            
+            [Filters]
+            Filters=1
+            Filter_001.Name=name
+            Filter_001.Value=value
+            </summary>
+            <typeparam name="T">Type of the Key</typeparam>
+            <typeparam name="U">Type of the Value</typeparam>
+            <param name="aSection"></param>
+            <param name="aKey"></param>
+            <param name="aValue"></param>
+        </member>
+        <member name="M:Swiss.IniFile.WriteDictionary``2(System.String,System.String,System.Collections.Generic.Dictionary{``0,``1},System.Func{``1,System.String})">
+            <summary>
+            Write a Dictionary like:
+            
+            [Filters]
+            Filters=1
+            Filter_001.Name=name
+            Filter_001.Value=value
+            
+            Optionally the aValue can be converted to a String.
+            
+            Example for System.Color values: '(aConvert) => aConvert.Name'.
+            </summary>
+            <typeparam name="T">Type of the Key</typeparam>
+            <typeparam name="U">Type of the Value</typeparam>
+            <param name="aSection"></param>
+            <param name="aKey"></param>
+            <param name="aValue"></param>
+            <param name="aConvert">A Lambda Expression that converts the Value to a String</param>
+        </member>
+        <member name="M:Swiss.IniFile.WriteDouble(System.String,System.String,System.Double,System.String)">
+            <summary>
+            Write a Double as a String.
+            </summary>
+            <remarks>Writing a floating point as a String may result in regional problems due to differences in Decimal Separator</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>
+        </member>
+        <member name="M:Swiss.IniFile.WriteEncryptedString(System.String,System.String,System.String,Swiss.SaltAndKeys,System.String)">
+            <summary>
+            Encrypts a String and Writes it.
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aSaltAndKeys">Salt and Keys for EncryptIt</param>
+            <param name="aComment">Optional Comment</param>
+        </member>
+        <member name="M:Swiss.IniFile.WriteEnum``1(System.String,System.String,System.Enum,System.String)">
+            <summary>
+            Write a Enum as a String.
+            </summary>
+            <typeparam name="T">Type of the Enum</typeparam>       
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>
+        </member>
+        <member name="M:Swiss.IniFile.WriteInteger(System.String,System.String,System.Int32,System.String)">
+            <summary>
+            Write an Integer value.
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>
+        </member>
+        <member name="M:Swiss.IniFile.WriteInteger(System.String,System.String,System.Int64,System.String)">
+            <summary>
+            Write an Int64 value.
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>
+        </member>
+        <member name="M:Swiss.IniFile.WriteList(System.String,System.String,System.Collections.Generic.List{System.String},System.Char)">
+            <summary>
+            Writes a Delimited List of Strings (Delimiter + Space)
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aDelimiter">The Delimiter</param>
+        </member>
+        <member name="M:Swiss.IniFile.WriteList``1(System.String,System.String,System.Collections.Generic.List{``0},System.Char)">
+            <summary>
+            Writes a Delimited List of Object as Strings (Delimiter + Space)
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aDelimiter">The Delimiter</param>
+        </member>
+        <member name="M:Swiss.IniFile.WriteObject(System.String,System.String,System.Object,System.String)">
+            <summary>
+            Write a Object as a String.
+            </summary>
+            <remarks>Writing a Object as a String may result in regional problems</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>        
+        </member>
+        <member name="M:Swiss.IniFile.WriteString(System.String,System.String,System.String,System.String)">
+            <summary>
+            Write a String.
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>
+        </member>
+        <member name="M:Swiss.IniFile.WriteStruct(System.String,System.String,System.Byte[],System.String)">
+            <summary>
+            Writes a Byte Array as a Hex String.
+            </summary>
+            <remarks>Calling CalcCheckSum is not very efficient but the code is always the same</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>
+            <returns>The checksum</returns>
+        </member>
+        <member name="M:Swiss.IniFile.WriteStruct(System.String,System.String,System.UInt16[],System.String)">
+            <summary>
+            Writes a UInt16 Array as a Hex String.
+            </summary>
+            <remarks>Calling CalcCheckSum is not very efficient but the code is always the same</remarks>
+            <remarks>There might be some Endian problems (Delphi Hottack32 data saved as '0908'
+            is read back as 0x0908 instead of 0x0809!</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>
+            <returns>The checksum</returns>
+        </member>
+        <member name="M:Swiss.IniFile.WriteStruct(System.String,System.String,System.UInt32[],System.String)">
+            <summary>
+            Writes a UInt32 Array as a Hex String.
+            </summary>
+            <remarks>Calling CalcCheckSum is not very efficient but the code is always the same</remarks>
+            <remarks>There might be some Endian problems (Delphi Hottack32 data saved as '0908'
+            is read back as 0x0908 instead of 0x0809!</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>
+            <returns>The checksum</returns>
+        </member>
+        <member name="M:Swiss.IniFile.WriteTime(System.String,System.String,System.DateTime,System.String)">
+            <summary>
+            Write the Time part of a DateTime as a String.
+            </summary>
+            <remarks>Writing a Time as a String may result in regional problems</remarks>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>
+        </member>
+        <member name="M:Swiss.IniFile.Insert(System.Int32,Swiss.IniFile.IniFileLine)">
+            <summary>
+            Inserts am IniFileLine into the IniFile.
+            </summary>
+            <param name="index">The index  where to insert</param>
+            <param name="value">The IniFileLine to insert</param>
+        </member>
+        <member name="M:Swiss.IniFile.OnInsert(System.Int32,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Swiss.IniFile.OnRemove(System.Int32,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Swiss.IniFile.OnSet(System.Int32,System.Object,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <param name="oldValue"></param>
+            <param name="newValue"></param>
+        </member>
+        <member name="M:Swiss.IniFile.OnValidate(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Swiss.IniFile.IsMemberTested(System.Reflection.MemberInfo)">
+            <summary>
+            
+            </summary>
+            <param name="member"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.Add(Swiss.IniFile.IniFileLine)">
+            <summary>
+            Adds a new IniFileLine to the IniFile.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.CalcCheckSum(System.String)">
+            <summary>
+            Calculates a simple 8 bits checksum.
+            </summary>
+            <param name="aValue">The Hex String</param>
+            <returns>The checksum</returns>
+        </member>
+        <member name="M:Swiss.IniFile.Contains(Swiss.IniFile.IniFileLine)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.Fix(System.String)">
+            <summary>
+            Replaces , and . by CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.
+            </summary>
+            <param name="number">The number to fix</param>
+            <returns>The fixed number</returns>
+        </member>
+        <member name="M:Swiss.IniFile.FixParse(System.String)">
+            <summary>
+            Replaces , and . by CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator 
+            and Parses the number.
+            </summary>
+            <param name="number">The number to fix and Parse</param>
+            <returns>The fixed number</returns>
+        </member>
+        <member name="M:Swiss.IniFile.FixTryParse(System.String,System.Double@)">
+            <summary>
+            Replaces , and . by CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator 
+            and TryParses the number.
+            </summary>
+            <param name="number">The number to fix and TryParse</param>
+            <param name="Result">The Parsed number</param>
+            <returns>TryParse return code</returns>
+        </member>
+        <member name="M:Swiss.IniFile.IndexOf(Swiss.IniFile.IniFileLine)">
+            <summary>
+            Retrieves the Index of a IniFileLine.
+            </summary>
+            <param name="value">The IniFileLine of which to return the index</param>
+            <returns>The Index of the IniFileLine value</returns>
+        </member>
+        <member name="M:Swiss.IniFile.Remove(Swiss.IniFile.IniFileLine)">
+            <summary>
+            Removes an IniFileLine from the IniFile.
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Swiss.IniFile.Sort">
+             <summary>
+            Sorting is still a bit of a problem.  
+            It should only sort Sections and perhaps not the content of sections!
+             </summary>
+        </member>
+        <member name="M:Swiss.IniFile._Md5Guid(System.String)">
+             <summary>
+             Gets MD5 hash.
+             </summary>
+            
+             <param name="input">   The input. </param>
+            
+             <returns>
+             The MD5 hash as a Guid.
+             </returns>
+        </member>
+        <member name="M:Swiss.IniFile._GetText">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile._GetPublicInstall">
+             <summary>
+             Query if this object is public install.
+             </summary>
+            
+             <returns>
+             true if public install, false if not.
+             </returns>
+        </member>
+        <member name="M:Swiss.IniFile._SetText(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="P:Swiss.IniFile.AppData">
+            <summary>
+            The Application's AppData Directory (%APPDATA% or %ALLUSERSPROFILE%) depending on the install type.
+            
+            This directory is created when not already present.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.AppLocalData">
+            <summary>
+            The Application's Local AppData Directory (%localappdata%). 
+            
+            This directory is created when not already present.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.AppDir">
+            <summary>
+            The Application's Directory
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.AppExe">
+            <summary>
+            The Application's Executable
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.AppDoc">
+            <summary>
+            The Application's My Documents Directory or Public Documents. 
+            
+            This directory is created when not already present.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.AppCommonDoc">
+            <summary>
+            The Application's Common Documents Directory. 
+            
+            This directory is created when not already present.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.AppUserDoc">
+            <summary>
+            The Application User's Documents Directory. 
+            
+            This directory is created when not already present.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.AppCommonData">
+            <summary>
+            The Application's Common Application Data Directory. 
+            
+            This directory is created when not already present.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.AppUserData">
+            <summary>
+            The Application User's Application Data Directory. 
+            
+            This directory is created when not already present.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.AppIni">
+            <summary>
+            The Default Application's IniFile Name.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.AppRegKey">
+            <summary>
+            Return a Registry Key based on the Application &amp; AppTitle.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.AppTitle">
+            <summary>
+            The Applications Title. 
+            
+            It is either the ProductName or derived from the 
+            last part of the Application's Directory.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.AppVersion">
+            <summary>
+            Returns the Application Version number.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.AppBuildSuffix">
+            <summary>
+            If set true (in Program.cs) the AppVersion will be appended to the AppData.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.CommentPadding">
+            <summary>
+            The Indent column of the Comment.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.AutoUpdate">
+            <summary>
+            Gets a value indicating whether the Bag is autoupdating the IniFile.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.AutoWrite">
+            <summary>
+            Automatically Writes default when a key does not exist yet during ReadString.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.Bag">
+            <summary>
+            The PropertyBag.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.Dirty">
+            <summary>
+            True if the IniFile is altered and needs to be saved.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.FileName">
+            <summary>
+            Returns the filename passed to the constructor.
+            
+            Note: '.\test.ini' is a special case (reads .{tab}est.ini!).
+                  Correct is '.\\test.ini'.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.IgnoreComment">
+            <summary>
+            If set to true, comments are threated as part of the value.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.PublicInstall">
+             <summary>
+             Query if this object is public install.
+             
+             Note: the ProductVersion Guid has to match WixBuilderm, ie:
+             
+             GetMd5Guid(String.Format("{0}.{1}.{2}", ExeVersionInfo.ProductMajorPart,
+             ExeVersionInfo.ProductMinorPart, ExeVersionInfo.ProductBuildPart));
+             </summary>
+            
+             <value>
+             true if public install, false if not.
+             </value>
+        </member>
+        <member name="P:Swiss.IniFile.RawSections">
+            <summary>
+            Sections in this List will have no '=' sign behind a  key if the value is null.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.Text">
+            <summary>
+            The Inifile as Text.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.Transient">
+            <summary>
+            Signals that the IniFile is a Transient one so saving is not important.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.Item(System.Int32)">
+            <summary cref="T:Swiss.IniFile.IniFileLine">
+            The colltion of IniFileLines in this IniFile.
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swiss.IniFile.SectionSorter.Compare(System.Object,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="x">The left value to compare</param>
+            <param name="y">The right value to compare</param>
+            <returns></returns>
+        </member>
+        <member name="T:Swiss.IniFile.IniFileLine">
+            <summary>
+            A line from an IniFile. Each line constists of a Section, Key, Value and Comment.
+            Various combinations are possible (for instance empty Comment). 
+            The Section is alway necessary
+            </summary>
+        </member>
+        <member name="M:Swiss.IniFile.IniFileLine.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Create a new IniFileLine as IniFile.
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>
+        </member>
+        <member name="M:Swiss.IniFile.IniFileLine.#ctor(System.String,System.String,System.Object,System.String)">
+            <summary>
+            A Line from an IniFile.
+            
+            The Value can be an Object.
+            </summary>
+            <param name="aSection">The Section</param>
+            <param name="aKey">The Key</param>
+            <param name="aValue">The Value</param>
+            <param name="aComment">Optional Comment</param>
+        </member>
+        <member name="P:Swiss.IniFile.IniFileLine.Comment">
+            <summary cref="P:Swiss.IniFile.CommentPadding">
+            Comment, indented to CommentPadding.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.IniFileLine.Key">
+            <summary cref="P:Swiss.IniFile.IniFileLine.Value">
+            The Key of a Key=Value pair.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.IniFileLine.Section">
+            <summary>
+            The Section of a IniFile Line.
+            </summary>
+        </member>
+        <member name="P:Swiss.IniFile.IniFileLine.Value">
+            <summary cref="P:Swiss.IniFile.IniFileLine.Key">
+            The Value of a Key=Value pair.
+            </summary>
+        </member>
+        <member name="T:Swiss.IniFile.IsTestedAttribute">
+            <summary>
+            An Attribute used to signal if a member of a class is tested.
+            </summary>
+        </member>
+        <member name="M:Swiss.IniFile.IsTestedAttribute.ToString">
+            <summary>
+            Returns the IsTestedAttribute as a String.
+            </summary>
+            <returns>Tested</returns>
+        </member>
+        <member name="T:Swiss.PropertySpec">
+            <summary>
+            Represents a single property in a PropertySpec.
+            </summary>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">The fully qualified name of the type of the property.</param>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.Type)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">A Type that represents the type of the property.</param>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">The fully qualified name of the type of the property.</param>
+            <param name="category">The category under which the property is displayed in the
+            property grid.</param>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.Type,System.String)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">A Type that represents the type of the property.</param>
+            <param name="category"></param>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">The fully qualified name of the type of the property.</param>
+            <param name="category">The category under which the property is displayed in the
+            property grid.</param>
+            <param name="description">A string that is displayed in the help area of the
+            property grid.</param>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.Type,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">A Type that represents the type of the property.</param>
+            <param name="category">The category under which the property is displayed in the
+            property grid.</param>
+            <param name="description">A string that is displayed in the help area of the
+            property grid.</param>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">The fully qualified name of the type of the property.</param>
+            <param name="category">The category under which the property is displayed in the
+            property grid.</param>
+            <param name="description">A string that is displayed in the help area of the
+            property grid.</param>
+            <param name="defaultValue">The default value of the property, or null if there is
+            no default value.</param>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.Type,System.String,System.String,System.Object)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">A Type that represents the type of the property.</param>
+            <param name="category">The category under which the property is displayed in the
+            property grid.</param>
+            <param name="description">A string that is displayed in the help area of the
+            property grid.</param>
+            <param name="defaultValue">The default value of the property, or null if there is
+            no default value.</param>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.String,System.String,System.String,System.Object,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">The fully qualified name of the type of the property.</param>
+            <param name="category">The category under which the property is displayed in the
+            property grid.</param>
+            <param name="description">A string that is displayed in the help area of the
+            property grid.</param>
+            <param name="defaultValue">The default value of the property, or null if there is
+            no default value.</param>
+            <param name="editor">The fully qualified name of the type of the editor for this
+            property.  This type must derive from UITypeEditor.</param>
+            <param name="typeConverter">The fully qualified name of the type of the type
+            converter for this property.  This type must derive from TypeConverter.</param>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.Type,System.String,System.String,System.Object,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">A Type that represents the type of the property.</param>
+            <param name="category">The category under which the property is displayed in the
+            property grid.</param>
+            <param name="description">A string that is displayed in the help area of the
+            property grid.</param>
+            <param name="defaultValue">The default value of the property, or null if there is
+            no default value.</param>
+            <param name="editor">The fully qualified name of the type of the editor for this
+            property.  This type must derive from UITypeEditor.</param>
+            <param name="typeConverter">The fully qualified name of the type of the type
+            converter for this property.  This type must derive from TypeConverter.</param>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.String,System.String,System.String,System.Object,System.Type,System.String)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">The fully qualified name of the type of the property.</param>
+            <param name="category">The category under which the property is displayed in the
+            property grid.</param>
+            <param name="description">A string that is displayed in the help area of the
+            property grid.</param>
+            <param name="defaultValue">The default value of the property, or null if there is
+            no default value.</param>
+            <param name="editor">The Type that represents the type of the editor for this
+            property.  This type must derive from UITypeEditor.</param>
+            <param name="typeConverter">The fully qualified name of the type of the type
+            converter for this property.  This type must derive from TypeConverter.</param>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.Type,System.String,System.String,System.Object,System.Type,System.String)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">A Type that represents the type of the property.</param>
+            <param name="category">The category under which the property is displayed in the
+            property grid.</param>
+            <param name="description">A string that is displayed in the help area of the
+            property grid.</param>
+            <param name="defaultValue">The default value of the property, or null if there is
+            no default value.</param>
+            <param name="editor">The Type that represents the type of the editor for this
+            property.  This type must derive from UITypeEditor.</param>
+            <param name="typeConverter">The fully qualified name of the type of the type
+            converter for this property.  This type must derive from TypeConverter.</param>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.String,System.String,System.String,System.Object,System.String,System.Type)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">The fully qualified name of the type of the property.</param>
+            <param name="category">The category under which the property is displayed in the
+            property grid.</param>
+            <param name="description">A string that is displayed in the help area of the
+            property grid.</param>
+            <param name="defaultValue">The default value of the property, or null if there is
+            no default value.</param>
+            <param name="editor">The fully qualified name of the type of the editor for this
+            property.  This type must derive from UITypeEditor.</param>
+            <param name="typeConverter">The Type that represents the type of the type
+            converter for this property.  This type must derive from TypeConverter.</param>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.Type,System.String,System.String,System.Object,System.String,System.Type)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">A Type that represents the type of the property.</param>
+            <param name="category">The category under which the property is displayed in the
+            property grid.</param>
+            <param name="description">A string that is displayed in the help area of the
+            property grid.</param>
+            <param name="defaultValue">The default value of the property, or null if there is
+            no default value.</param>
+            <param name="editor">The fully qualified name of the type of the editor for this
+            property.  This type must derive from UITypeEditor.</param>
+            <param name="typeConverter">The Type that represents the type of the type
+            converter for this property.  This type must derive from TypeConverter.</param>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.String,System.String,System.String,System.Object,System.Type,System.Type)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">The fully qualified name of the type of the property.</param>
+            <param name="category">The category under which the property is displayed in the
+            property grid.</param>
+            <param name="description">A string that is displayed in the help area of the
+            property grid.</param>
+            <param name="defaultValue">The default value of the property, or null if there is
+            no default value.</param>
+            <param name="editor">The Type that represents the type of the editor for this
+            property.  This type must derive from UITypeEditor.</param>
+            <param name="typeConverter">The Type that represents the type of the type
+            converter for this property.  This type must derive from TypeConverter.</param>
+        </member>
+        <member name="M:Swiss.PropertySpec.#ctor(System.String,System.Type,System.String,System.String,System.Object,System.Type,System.Type)">
+            <summary>
+            Initializes a new instance of the PropertySpec class.
+            </summary>
+            <param name="name">The name of the property displayed in the property grid.</param>
+            <param name="type">A Type that represents the type of the property.</param>
+            <param name="category">The category under which the property is displayed in the
+            property grid.</param>
+            <param name="description">A string that is displayed in the help area of the
+            property grid.</param>
+            <param name="defaultValue">The default value of the property, or null if there is
+            no default value.</param>
+            <param name="editor">The Type that represents the type of the editor for this
+            property.  This type must derive from UITypeEditor.</param>
+            <param name="typeConverter">The Type that represents the type of the type
+            converter for this property.  This type must derive from TypeConverter.</param>
+        </member>
+        <member name="P:Swiss.PropertySpec.Attributes">
+            <summary>
+            Gets or sets a collection of additional Attributes for this property.  This can
+            be used to specify attributes beyond those supported intrinsically by the
+            PropertySpec class, such as ReadOnly and Browsable.
+            </summary>
+        </member>
+        <member name="P:Swiss.PropertySpec.Category">
+            <summary>
+            Gets or sets the category name of this property.
+            </summary>
+        </member>
+        <member name="P:Swiss.PropertySpec.ConverterTypeName">
+            <summary>
+            Gets or sets the fully qualified name of the type converter
+            type for this property.
+            </summary>
+        </member>
+        <member name="P:Swiss.PropertySpec.DefaultValue">
+            <summary>
+            Gets or sets the default value of this property.
+            </summary>
+        </member>
+        <member name="P:Swiss.PropertySpec.Description">
+            <summary>
+            Gets or sets the help title description of this property.
+            </summary>
+        </member>
+        <member name="P:Swiss.PropertySpec.EditorTypeName">
+            <summary>
+            Gets or sets the fully qualified name of the editor type for
+            this property.
+            </summary>
+        </member>
+        <member name="P:Swiss.PropertySpec.Name">
+            <summary>
+            Gets or sets the name of this property.
+            </summary>
+        </member>
+        <member name="P:Swiss.PropertySpec.TypeName">
+            <summary>
+            Gets or sets the fully qualfied name of the type of this
+            property.
+            </summary>
+        </member>
+        <member name="P:Swiss.PropertySpec.Key">
+            <summary>
+            The Key.
+            </summary>
+        </member>
+        <member name="T:Swiss.PropertySpecEventArgs">
+            <summary>
+            Provides data for the GetValue and SetValue events of the PropertyBag class.
+            </summary>
+        </member>
+        <member name="M:Swiss.PropertySpecEventArgs.#ctor(Swiss.PropertySpec,System.Object)">
+            <summary>
+            Initializes a new instance of the PropertySpecEventArgs class.
+            </summary>
+            <param name="property">The PropertySpec that represents the property whose
+            value is being requested or set.</param>
+            <param name="val">The current value of the property.</param>
+        </member>
+        <member name="P:Swiss.PropertySpecEventArgs.Property">
+            <summary>
+            Gets the PropertySpec that represents the property whose value is being
+            requested or set.
+            </summary>
+        </member>
+        <member name="P:Swiss.PropertySpecEventArgs.Value">
+            <summary>
+            Gets or sets the current value of the property.
+            </summary>
+        </member>
+        <member name="T:Swiss.PropertySpecEventHandler">
+            <summary>
+            Represents the method that will handle the GetValue and SetValue events of the
+            PropertyBag class.
+            </summary>
+        </member>
+        <member name="T:Swiss.PropertyBag">
+            <summary>
+            Represents a collection of custom properties that can be selected into a
+            PropertyGrid to provide functionality beyond that of the simple reflection
+            normally used to query an object'key properties.
+            </summary>
+        </member>
+        <member name="M:Swiss.PropertyBag.#ctor">
+            <summary>
+            Initializes a new instance of the PropertyBag class.
+            </summary>
+        </member>
+        <member name="M:Swiss.PropertyBag.OnGetValue(Swiss.PropertySpecEventArgs)">
+            <summary>
+            Raises the GetValue event.
+            </summary>
+            <param name="e">A PropertySpecEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:Swiss.PropertyBag.OnSetValue(Swiss.PropertySpecEventArgs)">
+            <summary>
+            Raises the SetValue event.
+            </summary>
+            <param name="e">A PropertySpecEventArgs that contains the event data.</param>
+        </member>
+        <member name="P:Swiss.PropertyBag.DefaultProperty">
+            <summary>
+            Gets or sets the name of the default property in the collection.
+            </summary>
+        </member>
+        <member name="P:Swiss.PropertyBag.Properties">
+            <summary>
+            Gets the collection of properties contained within this PropertyBag.
+            </summary>
+        </member>
+        <member name="E:Swiss.PropertyBag.GetValue">
+            <summary>
+            Occurs when a PropertyGrid requests the value of a property.
+            </summary>
+        </member>
+        <member name="E:Swiss.PropertyBag.SetValue">
+            <summary>
+            Occurs when the user changes the value of a property in a PropertyGrid.
+            </summary>
+        </member>
+        <member name="T:Swiss.PropertyBag.PropertySpecCollection">
+            <summary>
+            Encapsulates a collection of PropertySpec objects.
+            </summary>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.#ctor">
+            <summary>
+            Initializes a new instance of the PropertySpecCollection class.
+            </summary>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.Add(Swiss.PropertySpec)">
+            <summary>
+            Adds a PropertySpec to the end of the PropertySpecCollection.
+            </summary>
+            <param name="value">The PropertySpec to be added to the end of the PropertySpecCollection.</param>
+            <returns>The PropertySpecCollection index at which the value has been added.</returns>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.AddRange(Swiss.PropertySpec[])">
+            <summary>
+            Adds the elements of an array of PropertySpec objects to the end of the PropertySpecCollection.
+            </summary>
+            <param name="array">The PropertySpec array whose elements should be added to the end of the
+            PropertySpecCollection.</param>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.Clear">
+            <summary>
+            Removes all elements from the PropertySpecCollection.
+            </summary>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.Contains(Swiss.PropertySpec)">
+            <summary>
+            Determines whether a PropertySpec is in the PropertySpecCollection.
+            </summary>
+            <param name="item">The PropertySpec to locate in the PropertySpecCollection. The element to locate
+            can be a null reference (Nothing in Visual Basic).</param>
+            <returns>true if item is found in the PropertySpecCollection; otherwise, false.</returns>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.Contains(System.String)">
+            <summary>
+            Determines whether a PropertySpec with the specified name is in the PropertySpecCollection.
+            </summary>
+            <param name="name">The name of the PropertySpec to locate in the PropertySpecCollection.</param>
+            <returns>true if item is found in the PropertySpecCollection; otherwise, false.</returns>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.CopyTo(Swiss.PropertySpec[])">
+            <summary>
+            Copies the entire PropertySpecCollection to a compatible one-dimensional Array, starting at the
+            beginning of the target array.
+            </summary>
+            <param name="array">The one-dimensional Array that is the destination of the elements copied
+            from PropertySpecCollection. The Array must have zero-based indexing.</param>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.CopyTo(Swiss.PropertySpec[],System.Int32)">
+            <summary>
+            Copies the PropertySpecCollection or a portion of it to a one-dimensional array.
+            </summary>
+            <param name="array">The one-dimensional Array that is the destination of the elements copied
+            from the collection.</param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that can iterate through the PropertySpecCollection.
+            </summary>
+            <returns>An IEnumerator for the entire PropertySpecCollection.</returns>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.IndexOf(Swiss.PropertySpec)">
+            <summary>
+            Searches for the specified PropertySpec and returns the zero-based index of the first
+            occurrence within the entire PropertySpecCollection.
+            </summary>
+            <param name="value">The PropertySpec to locate in the PropertySpecCollection.</param>
+            <returns>The zero-based index of the first occurrence of value within the entire PropertySpecCollection,
+            if found; otherwise, -1.</returns>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.IndexOf(System.String)">
+            <summary>
+            Searches for the PropertySpec with the specified name and returns the zero-based index of
+            the first occurrence within the entire PropertySpecCollection.
+            </summary>
+            <param name="name">The name of the PropertySpec to locate in the PropertySpecCollection.</param>
+            <returns>The zero-based index of the first occurrence of value within the entire PropertySpecCollection,
+            if found; otherwise, -1.</returns>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.Insert(System.Int32,Swiss.PropertySpec)">
+            <summary>
+            Inserts a PropertySpec object into the PropertySpecCollection at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which value should be inserted.</param>
+            <param name="value">The PropertySpec to insert.</param>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.Remove(Swiss.PropertySpec)">
+            <summary>
+            Removes the first occurrence of a specific object from the PropertySpecCollection.
+            </summary>
+            <param name="obj">The PropertySpec to remove from the PropertySpecCollection.</param>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.Remove(System.String)">
+            <summary>
+            Removes the property with the specified name from the PropertySpecCollection.
+            </summary>
+            <param name="name">The name of the PropertySpec to remove from the PropertySpecCollection.</param>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.RemoveAt(System.Int32)">
+            <summary>
+            Removes the object at the specified index of the PropertySpecCollection.
+            </summary>
+            <param name="index">The zero-based index of the element to remove.</param>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.ToArray">
+            <summary>
+            Copies the elements of the PropertySpecCollection to a new PropertySpec array.
+            </summary>
+            <returns>A PropertySpec array containing copies of the elements of the PropertySpecCollection.</returns>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.System#Collections#ICollection#CopyTo(System.Array,System.Int32)">
+            <summary>
+            This member supports the .NET Framework infrastructure and is not intended to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.System#Collections#IList#Add(System.Object)">
+            <summary>
+            This member supports the .NET Framework infrastructure and is not intended to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.System#Collections#IList#Contains(System.Object)">
+            <summary>
+            This member supports the .NET Framework infrastructure and is not intended to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.System#Collections#IList#IndexOf(System.Object)">
+            <summary>
+            This member supports the .NET Framework infrastructure and is not intended to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.System#Collections#IList#Insert(System.Int32,System.Object)">
+            <summary>
+            This member supports the .NET Framework infrastructure and is not intended to be used directly from your code.
+            </summary>
+        </member>
+        <member name="M:Swiss.PropertyBag.PropertySpecCollection.System#Collections#IList#Remove(System.Object)">
+            <summary>
+            This member supports the .NET Framework infrastructure and is not intended to be used directly from your code.
+            </summary>
+        </member>
+        <member name="P:Swiss.PropertyBag.PropertySpecCollection.Count">
+            <summary>
+            Gets the sectionnumber of elements in the PropertySpecCollection.
+            </summary>
+            <value>
+            The sectionnumber of elements contained in the PropertySpecCollection.
+            </value>
+        </member>
+        <member name="P:Swiss.PropertyBag.PropertySpecCollection.IsFixedSize">
+            <summary>
+            Gets a value indicating whether the PropertySpecCollection has a fixed size.
+            </summary>
+            <value>
+            true if the PropertySpecCollection has a fixed size; otherwise, false.
+            </value>
+        </member>
+        <member name="P:Swiss.PropertyBag.PropertySpecCollection.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the PropertySpecCollection is read-only.
+            </summary>
+        </member>
+        <member name="P:Swiss.PropertyBag.PropertySpecCollection.IsSynchronized">
+            <summary>
+            Gets a value indicating whether access to the collection is synchronized (thread-safe).
+            </summary>
+            <value>
+            true if access to the PropertySpecCollection is synchronized (thread-safe); otherwise, false.
+            </value>
+        </member>
+        <member name="P:Swiss.PropertyBag.PropertySpecCollection.System#Collections#ICollection#SyncRoot">
+            <summary>
+            Gets an object that can be used to synchronize access to the collection.
+            </summary>
+            <value>
+            An object that can be used to synchronize access to the collection.
+            </value>
+        </member>
+        <member name="P:Swiss.PropertyBag.PropertySpecCollection.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            In C#, this property is the indexer for the PropertySpecCollection class.
+            </summary>
+            <param name="index">The zero-based index of the element to get or set.</param>
+            <value>
+            The element at the specified index.
+            </value>
+        </member>
+        <member name="P:Swiss.PropertyBag.PropertySpecCollection.System#Collections#IList#Item(System.Int32)">
+            <summary>
+            This member supports the .NET Framework infrastructure and is not intended to be used directly from your code.
+            </summary>
+        </member>
+        <member name="T:Swiss.PropertyTable">
+            <summary>
+            An extension of PropertyBag that manages a table of property values, in
+            addition to firing events when property values are requested or set.
+            </summary>
+        </member>
+        <member name="M:Swiss.PropertyTable.#ctor">
+            <summary>
+            Initializes a new instance of the PropertyTable class.
+            </summary>
+        </member>
+        <member name="M:Swiss.PropertyTable.OnGetValue(Swiss.PropertySpecEventArgs)">
+            <summary>
+            This member overrides PropertyBag.OnGetValue.
+            </summary>
+        </member>
+        <member name="M:Swiss.PropertyTable.OnSetValue(Swiss.PropertySpecEventArgs)">
+            <summary>
+            This member overrides PropertyBag.OnSetValue.
+            </summary>
+        </member>
+        <member name="P:Swiss.PropertyTable.Item(System.String)">
+            <summary>
+            Gets or sets the value of the property with the specified name.
+            <p>In C#, this property is the indexer of the PropertyTable class.</p>
+            </summary>
+        </member>
+    </members>
+</doc>

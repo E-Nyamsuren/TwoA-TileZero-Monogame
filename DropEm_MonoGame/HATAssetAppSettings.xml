@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HATAssetSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Mode>perGame</Mode>
+  <Scenarios>
+    <Scenario AdaptationID="Game difficulty - Player skill" GameID="DropEm" ScenarioID="Very Easy AI">
+      <Rating>0.60354183235354</Rating>
+      <PlayCount>3</PlayCount>
+      <KFactor>0.03365625</KFactor>
+      <Uncertainty>0.95</Uncertainty>
+      <LastPlayed>2015-07-29T09:52:08</LastPlayed>
+      <TimeLimit>900000</TimeLimit>
+    </Scenario>
+    <Scenario AdaptationID="Game difficulty - Player skill" GameID="DropEm" ScenarioID="Easy AI">
+      <Rating>0.802229017857767</Rating>
+      <PlayCount>9</PlayCount>
+      <KFactor>0.03046875</KFactor>
+      <Uncertainty>0.8</Uncertainty>
+      <LastPlayed>2015-07-29T11:59:06</LastPlayed>
+      <TimeLimit>900000</TimeLimit>
+    </Scenario>
+    <Scenario AdaptationID="Game difficulty - Player skill" GameID="DropEm" ScenarioID="Medium Color AI">
+      <Rating>1.1909158448601</Rating>
+      <PlayCount>4</PlayCount>
+      <KFactor>0.034875</KFactor>
+      <Uncertainty>0.95</Uncertainty>
+      <LastPlayed>2015-07-29T11:55:48</LastPlayed>
+      <TimeLimit>900000</TimeLimit>
+    </Scenario>
+    <Scenario AdaptationID="Game difficulty - Player skill" GameID="DropEm" ScenarioID="Medium Shape AI">
+      <Rating>1.22000184144256</Rating>
+      <PlayCount>8</PlayCount>
+      <KFactor>0.0309375</KFactor>
+      <Uncertainty>0.95</Uncertainty>
+      <LastPlayed>2015-07-29T11:48:19</LastPlayed>
+      <TimeLimit>900000</TimeLimit>
+    </Scenario>
+    <Scenario AdaptationID="Game difficulty - Player skill" GameID="DropEm" ScenarioID="Hard AI">
+      <Rating>1.48201724232065</Rating>
+      <PlayCount>3</PlayCount>
+      <KFactor>0.03478125</KFactor>
+      <Uncertainty>0.95</Uncertainty>
+      <LastPlayed>2015-07-29T11:50:59</LastPlayed>
+      <TimeLimit>900000</TimeLimit>
+    </Scenario>
+    <Scenario AdaptationID="Game difficulty - Player skill" GameID="DropEm" ScenarioID="Very Hard AI">
+      <Rating>1.84523976312174</Rating>
+      <PlayCount>5</PlayCount>
+      <KFactor>0.0335625</KFactor>
+      <Uncertainty>0.9</Uncertainty>
+      <LastPlayed>2015-07-29T12:02:23</LastPlayed>
+      <TimeLimit>900000</TimeLimit>
+    </Scenario>
+  </Scenarios>
+  <Players>
+    <Player AdaptationID="Game difficulty - Player skill" GameID="DropEm" PlayerID="Noob">
+      <Rating>0.467453703303915</Rating>
+      <PlayCount>31</PlayCount>
+      <KFactor>0.011625</KFactor>
+      <Uncertainty>0.25</Uncertainty>
+      <LastPlayed>2015-07-29T12:02:23</LastPlayed>
+    </Player>
+  </Players>
+</HATAssetSettings>

@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Swiss.EncryptIt</name>
+    </assembly>
+    <members>
+        <member name="T:Swiss.EncryptIt">
+            <summary>
+            This class implements simple encryption and decryption.
+            </summary>
+        </member>
+        <member name="F:Swiss.EncryptIt.SandKs">
+            <summary>
+            Encryption Salt and Keys.
+            </summary>
+        </member>
+        <member name="M:Swiss.EncryptIt.#ctor(Swiss.SaltAndKeys)">
+            <summary>
+            Initialize the Salt and Keys.
+            </summary>
+            <param name="SaltnKeys">SaltAndKeys object containing the Salt and Keys values.</param>
+        </member>
+        <member name="M:Swiss.EncryptIt.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initialize the Salt and Keys.
+            </summary>
+            <param name="CryptKey">The Salt</param>
+            <param name="C1">Private Key 1</param>
+            <param name="C2">Private Key 2</param>
+        </member>
+        <member name="M:Swiss.EncryptIt.Decrypt(System.String)">
+            <summary>
+            Decrypt decrypts a hexadecimal string back to it's un-encrypted form.
+            </summary>
+            <param name="value">The Hex String to decrypt.</param>
+            <returns>The Decrypted String.</returns>
+        </member>
+        <member name="M:Swiss.EncryptIt.Decrypt(System.String,System.Int32)">
+            <summary>
+            Decrypts a String.
+            </summary>
+            <param name="value">The Hex String to decrypt.</param>
+            <param name="key">>The Encryption Key to use.</param>
+            <returns>The Decrypted String</returns>
+        </member>
+        <member name="M:Swiss.EncryptIt.Decrypt(System.String,System.Byte[]@)">
+            <summary>
+            Decrypt decrypts a hexadecimal string back to it's un-encrypted form.
+            </summary>
+            <param name="value">The Hex String to decrypt.</param>
+            <param name="result">The Decrypted Byte[]</param>
+        </member>
+        <member name="M:Swiss.EncryptIt.Decrypt(System.String,System.Int32,System.Byte[]@)">
+            <summary>
+            Decrypts a String.
+            </summary>
+            <param name="value">The Hex String to decrypt.</param>
+            <param name="key">>The Encryption Key to use.</param>
+            <param name="result">The Decrypted Byte[]</param>
+        </member>
+        <member name="M:Swiss.EncryptIt.Dispose">
+            <summary>
+            Dispose.
+            </summary>
+        </member>
+        <member name="M:Swiss.EncryptIt.Encrypt(System.String)">
+            <summary>
+            Encrypts a String.
+            </summary>
+            <param name="value">The String to encrypt.</param>
+            <returns>The Encrypted String.</returns>
+        </member>
+        <member name="M:Swiss.EncryptIt.Encrypt(System.String,System.Int32)">
+            <summary>
+            Encrypts a String.
+            </summary>
+            <param name="value">The String to encrypt.</param>
+            <param name="key">>The Encryption Key to use.</param>
+            <returns>The Encrypted String.</returns>
+        </member>
+        <member name="M:Swiss.EncryptIt.Encrypt(System.Byte[])">
+            <summary>
+            Encrypts a Byte[].
+            </summary>
+            <param name="value">The Byte[] to encrypt.</param>
+            <returns>The Encrypted Byte[].</returns>
+        </member>
+        <member name="M:Swiss.EncryptIt.Encrypt(System.Byte[],System.Int32)">
+            <summary>
+            Encrypts a Byte[].
+            </summary>
+            <param name="value">The Byte[] to encrypt.</param>
+            <param name="key">>The Encryption Key to use.</param>
+            <returns>The Encrypted Byte[].</returns>
+        </member>
+        <member name="M:Swiss.EncryptIt.DecryptChar(System.Byte,System.Int64@)">
+            <summary>
+            Decrypt a Byte back into Char.
+            </summary>
+            <remarks>The Salt is only initially equal to the CryptKey.</remarks>
+            <param name="ch">The Byte to decrypt.</param>
+            <param name="salt">The Encryption Salt to use.</param>
+            <returns>The Decrypted Char</returns>
+        </member>
+        <member name="M:Swiss.EncryptIt.EncryptChar(System.Byte,System.Int64@)">
+            <summary>
+            Encrypt a Byte into it's encrypted hexadecimal form.
+            </summary>
+            <remarks>The Salt is only initially equal to the CryptKey.</remarks>
+            <param name="ch">The Character to encrypt.</param>
+            <param name="salt">The Encryption Salt to use.</param>
+            <returns>The Encrypted String.</returns>
+        </member>
+        <member name="T:Swiss.SaltAndKeys">
+            <summary>
+            Encryption Salt and Keys.
+            </summary>
+        </member>
+        <member name="M:Swiss.SaltAndKeys.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Swiss.SaltAndKeys.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constuctor. 
+            
+            Should be passed three 'secret' numbers, the salt and two private keys.
+            </summary>
+            <param name="CryptKey">The Salt</param>
+            <param name="C1">Private Key 1</param>
+            <param name="C2">Private Key 2</param>
+        </member>
+        <member name="P:Swiss.SaltAndKeys.C1">
+            <summary>
+            Private Key #1.
+            </summary>
+        </member>
+        <member name="P:Swiss.SaltAndKeys.C2">
+            <summary>
+            Private Key #2.
+            </summary>
+        </member>
+        <member name="P:Swiss.SaltAndKeys.CryptKey">
+            <summary>
+            Default Public Encryption Key (Initial Salt).
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AdaptationData>
+  <Adaptation AdaptationID="Game difficulty - Player skill">
+    <Game GameID="Qwirkle">
+      <ScenarioData>
+        <Scenario ScenarioID="Very Easy AI">
+          <Rating>0.7</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>900000</TimeLimit>
+        </Scenario>
+        <Scenario ScenarioID="Easy AI">
+          <Rating>1.0</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>900000</TimeLimit>
+        </Scenario>
+        <Scenario ScenarioID="Medium Color AI">
+          <Rating>1.3</Rating>
+          <PlayCount>1</PlayCount>
+          <KFactor>0.03375</KFactor>
+          <Uncertainty>1</Uncertainty>
+          <LastPlayed>2015/07/22 11:56:17</LastPlayed>
+          <TimeLimit>900000</TimeLimit>
+        </Scenario>
+        <Scenario ScenarioID="Medium Shape AI">
+          <Rating>1.3</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>900000</TimeLimit>
+        </Scenario>
+        <Scenario ScenarioID="Hard AI">
+          <Rating>1.6</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>900000</TimeLimit>
+        </Scenario>
+        <Scenario ScenarioID="Very Hard AI">
+          <Rating>1.9</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>900000</TimeLimit>
+        </Scenario>
+      </ScenarioData>
+      <PlayerData>
+        <Player PlayerID="Noob">
+          <Rating>0</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+        </Player>
+      </PlayerData>
+    </Game>
+	<Game GameID="DynamicQwirkle">
+      <ScenarioData>
+        <Scenario ScenarioID="Very Easy AI">
+          <Rating>0.7</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>900000</TimeLimit>
+        </Scenario>
+        <Scenario ScenarioID="Easy AI">
+          <Rating>1.0</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>900000</TimeLimit>
+        </Scenario>
+        <Scenario ScenarioID="Medium Color AI">
+          <Rating>1.3</Rating>
+          <PlayCount>1</PlayCount>
+          <KFactor>0.03375</KFactor>
+          <Uncertainty>1</Uncertainty>
+          <LastPlayed>2015/07/22 11:56:17</LastPlayed>
+          <TimeLimit>900000</TimeLimit>
+        </Scenario>
+        <Scenario ScenarioID="Medium Shape AI">
+          <Rating>1.3</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>900000</TimeLimit>
+        </Scenario>
+        <Scenario ScenarioID="Hard AI">
+          <Rating>1.6</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>900000</TimeLimit>
+        </Scenario>
+        <Scenario ScenarioID="Very Hard AI">
+          <Rating>1.9</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>900000</TimeLimit>
+        </Scenario>
+      </ScenarioData>
+      <PlayerData>
+        <Player PlayerID="DynamicNoob">
+          <Rating>0</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+        </Player>
+      </PlayerData>
+    </Game>
+	<Game GameID="Stickers">
+      <ScenarioData>
+        <Scenario ScenarioID="Troll">
+          <Rating>0.6</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>600000</TimeLimit>
+        </Scenario>
+        <Scenario ScenarioID="Ogre">
+          <Rating>0.8</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>600000</TimeLimit>
+        </Scenario>
+        <Scenario ScenarioID="Pirate">
+          <Rating>1.0</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>600000</TimeLimit>
+        </Scenario>
+        <Scenario ScenarioID="Knight">
+          <Rating>1.2</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>600000</TimeLimit>
+        </Scenario>
+        <Scenario ScenarioID="Mage">
+          <Rating>1.4</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>600000</TimeLimit>
+        </Scenario>
+        <Scenario ScenarioID="Engineer">
+          <Rating>1.6</Rating>
+          <PlayCount>0</PlayCount>
+          <KFactor>0.0075</KFactor>
+          <Uncertainty>1.0</Uncertainty>
+          <LastPlayed>2015/01/01 01:01:01</LastPlayed>
+          <TimeLimit>600000</TimeLimit>
+        </Scenario>
+      </ScenarioData>
+      <PlayerData />
+    </Game>
+  </Adaptation>
+</AdaptationData>

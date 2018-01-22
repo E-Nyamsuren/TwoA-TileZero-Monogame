@@ -1,0 +1,11 @@
+C:\Users\veg\Documents\Visual Studio 2013\Projects\DropEm_MonoGame\DropEm_Editor\bin\Debug\DropEm_Editor.exe
+C:\Users\veg\Documents\Visual Studio 2013\Projects\DropEm_MonoGame\DropEm_Editor\bin\Debug\DropEm_Editor.pdb
+C:\Users\veg\Documents\Visual Studio 2013\Projects\DropEm_MonoGame\DropEm_Editor\bin\Debug\RageAssetManager.dll
+C:\Users\veg\Documents\Visual Studio 2013\Projects\DropEm_MonoGame\DropEm_Editor\bin\Debug\RageAssetManager.pdb
+C:\Users\veg\Documents\Visual Studio 2013\Projects\DropEm_MonoGame\DropEm_Editor\bin\Debug\RageAssetManager.xml
+C:\Users\veg\Documents\Visual Studio 2013\Projects\DropEm_MonoGame\DropEm_Editor\obj\Debug\DropEm_Editor.csprojResolveAssemblyReference.cache
+C:\Users\veg\Documents\Visual Studio 2013\Projects\DropEm_MonoGame\DropEm_Editor\obj\Debug\DropEm_Editor.Form1.resources
+C:\Users\veg\Documents\Visual Studio 2013\Projects\DropEm_MonoGame\DropEm_Editor\obj\Debug\DropEm_Editor.Properties.Resources.resources
+C:\Users\veg\Documents\Visual Studio 2013\Projects\DropEm_MonoGame\DropEm_Editor\obj\Debug\DropEm_Editor.csproj.GenerateResource.Cache
+C:\Users\veg\Documents\Visual Studio 2013\Projects\DropEm_MonoGame\DropEm_Editor\obj\Debug\DropEm_Editor.exe
+C:\Users\veg\Documents\Visual Studio 2013\Projects\DropEm_MonoGame\DropEm_Editor\obj\Debug\DropEm_Editor.pdb

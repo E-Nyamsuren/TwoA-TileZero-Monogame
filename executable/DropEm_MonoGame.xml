@@ -1,0 +1,2031 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DropEm_MonoGame</name>
+    </assembly>
+    <members>
+        <member name="T:MonoGame1.Bridge">
+            <summary>
+            A bridge.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.Bridge.StorageDir">
+            <summary>
+            The storage dir for IDataStorage use. The folder will be located in the Unity Assets Folder.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.Bridge.ResourceDir">
+             <summary>
+             The resource dir for IDefaulSettings use.
+             </summary>
+            
+             <remarks>       This directory could be used to create and save for instance &lt;class&gt;
+                             AppSettings.xml Setting files at edit time but NOT at run-time.</remarks>
+             <remarks>       Reading of files saved in this directory can be done with Unity's
+                             Resources.Load() methods, where the name passed is the filename relative to
+                             ResourceDir without file extension.</remarks>
+        </member>
+        <member name="M:MonoGame1.Bridge.#cctor">
+            <summary>
+            Initializes static members of the MonoGame1.Bridge class.
+            </summary>
+        </member>
+        <member name="M:MonoGame1.Bridge.#ctor">
+            <summary>
+            Initializes a new instance of the asset_proof_of_concept_demo_CSharp.Bridge class.
+            </summary>
+        </member>
+        <member name="M:MonoGame1.Bridge.Exists(System.String)">
+             <summary>
+             Exists the given file.
+             </summary>
+            
+             <param name="fileId"> The file identifier to delete. </param>
+            
+             <returns>
+             true if it succeeds, false if it fails.
+             </returns>
+        </member>
+        <member name="M:MonoGame1.Bridge.Files">
+             <summary>
+             Gets the files.
+             </summary>
+            
+             <returns>
+             A List&lt;String&gt;
+             </returns>
+        </member>
+        <member name="M:MonoGame1.Bridge.Save(System.String,System.String)">
+             <summary>
+             Saves the given file.
+             </summary>
+            
+             <param name="fileId">   The file identifier to delete. </param>
+             <param name="fileData"> Information describing the file. </param>
+        </member>
+        <member name="M:MonoGame1.Bridge.Load(System.String)">
+             <summary>
+             Loads the given file.
+             </summary>
+            
+             <param name="fileId"> The file identifier to delete. </param>
+            
+             <returns>
+             A String.
+             </returns>
+        </member>
+        <member name="M:MonoGame1.Bridge.Delete(System.String)">
+             <summary>
+             Deletes the given fileId.
+             </summary>
+            
+             <param name="fileId"> The file identifier to delete. </param>
+            
+             <returns>
+             true if it succeeds, false if it fails.
+             </returns>
+        </member>
+        <member name="M:MonoGame1.Bridge.DeriveAssetName(System.String,System.String)">
+             <summary>
+             Derive asset name.
+             </summary>
+            
+             <param name="Class"> The class. </param>
+             <param name="Id">    The identifier. </param>
+            
+             <returns>
+             A String.
+             </returns>
+        </member>
+        <member name="M:MonoGame1.Bridge.HasDefaultSettings(System.String,System.String)">
+             <summary>
+             Query if a 'Class' with Id has default settings.
+             </summary>
+            
+             <param name="Class"> The class. </param>
+             <param name="Id">    The identifier. </param>
+            
+             <returns>
+             true if default settings, false if not.
+             </returns>
+        </member>
+        <member name="M:MonoGame1.Bridge.LoadDefaultSettings(System.String,System.String)">
+             <summary>
+             Loads default settings for a 'Class' with Id.
+             </summary>
+            
+             <param name="Class"> The class. </param>
+             <param name="Id">    The identifier. </param>
+            
+             <returns>
+             The default settings.
+             </returns>
+        </member>
+        <member name="M:MonoGame1.Bridge.SaveDefaultSettings(System.String,System.String,System.String)">
+             <summary>
+             Saves a default settings for a 'Class' with Id.
+             </summary>
+            
+             <param name="Class">    The class. </param>
+             <param name="Id">       The identifier. </param>
+             <param name="fileData"> The File Data. </param>
+        </member>
+        <member name="T:MonoGame1.FrameCounter">
+            <summary>
+            A frame counter.
+            
+            See http://stackoverflow.com/questions/20676185/xna-monogame-getting-the-frames-per-second
+            
+            This work had no explicit license specified.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.FrameCounter.MAXIMUM_SAMPLES">
+            <summary>
+            The maximum samples.
+            </summary>
+        </member>
+        <member name="M:MonoGame1.FrameCounter.#ctor">
+            <summary>
+            Initializes a new instance of the MonoGame1.FrameCounter class.
+            </summary>
+        </member>
+        <member name="M:MonoGame1.FrameCounter.Update(System.Single)">
+             <summary>
+             Updates the given deltaTime.
+             </summary>
+            
+             <param name="deltaTime"> The delta time. </param>
+            
+             <returns>
+             true if it succeeds, false if it fails.
+             </returns>
+        </member>
+        <member name="P:MonoGame1.FrameCounter.TotalFrames">
+             <summary>
+             Gets the total number of frames.
+             </summary>
+            
+             <value>
+             The total number of frames.
+             </value>
+        </member>
+        <member name="P:MonoGame1.FrameCounter.TotalSeconds">
+             <summary>
+             Gets the total number of seconds.
+             </summary>
+            
+             <value>
+             The total number of seconds.
+             </value>
+        </member>
+        <member name="P:MonoGame1.FrameCounter.AverageFramesPerSecond">
+             <summary>
+             Gets the average frames per second.
+             </summary>
+            
+             <value>
+             The average frames per second.
+             </value>
+        </member>
+        <member name="P:MonoGame1.FrameCounter.CurrentFramesPerSecond">
+             <summary>
+             Gets the current frames per second.
+             </summary>
+            
+             <value>
+             The current frames per second.
+             </value>
+        </member>
+        <member name="T:MonoGame1.DropEmGameWindow">
+            <summary>
+            This is the main type for your game.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.cols">
+            <summary>
+            The Board width in cells.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.rows">
+            <summary>
+            The Board height in cells.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.marginLeft">
+            <summary>
+            The board offset from the left.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.marginTop">
+            <summary>
+            The board offset from the top.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.cellw">
+            <summary>
+            The width of a cell.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.cellh">
+            <summary>
+            The height of a cell.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.frameCounter">
+            <summary>
+            The frame counter.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.previousState">
+            <summary>
+            State of the previous.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.mx">
+            <summary>
+            The X position of the mouse cursor.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.my">
+            <summary>
+            The Y position of the mouse cursor.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.col">
+            <summary>
+            The column number under the cursor.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.row">
+            <summary>
+            The row number under the cursor.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.selCol">
+            <summary>
+            The last clicked/selected column number.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.selRow">
+            <summary>
+            The last clicked/selected row number.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.selTile">
+            <summary>
+            The selected tile.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.tile">
+            <summary>
+            The tile.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.tilesuffix">
+            <summary>
+            The tile suffix.
+            </summary>
+        </member>
+        <member name="F:MonoGame1.DropEmGameWindow.glyphs">
+            <summary>
+            The glyphs.
+            </summary>
+        </member>
+        <member name="M:MonoGame1.DropEmGameWindow.#ctor">
+            <summary>
+            Initializes a new instance of the MonoGame1.Game1 class.
+            </summary>
+        </member>
+        <member name="M:MonoGame1.DropEmGameWindow.Initialize">
+            <summary>
+            Allows the game to perform any initialization it needs to before starting to run.
+            This is where it can query for any required services and load any non-graphic
+            related content.  Calling base.Initialize will enumerate through any components
+            and initialize them as well.
+            </summary>
+        </member>
+        <member name="M:MonoGame1.DropEmGameWindow.LoadContent">
+            <summary>
+            LoadContent will be called once per game and is the place to load all of
+            your content.
+            </summary>
+        </member>
+        <member name="M:MonoGame1.DropEmGameWindow.UnloadContent">
+            <summary>
+            UnloadContent will be called once per game and is the place to unload
+            game-specific content.
+            </summary>
+        </member>
+        <member name="M:MonoGame1.DropEmGameWindow.Update(Microsoft.Xna.Framework.GameTime)">
+             <summary>
+             Allows the game to run logic such as updating the world, checking for
+             collisions, gathering input, and playing audio.
+             </summary>
+            
+             <param name="gameTime"> Provides a snapshot of timing values. </param>
+        </member>
+        <member name="M:MonoGame1.DropEmGameWindow.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            This is called when the game should draw itself.
+            </summary>
+            <param name="gameTime">Provides a snapshot of timing values.</param>
+        </member>
+        <member name="M:MonoGame1.DropEmGameWindow.EndGame">
+            <summary>
+            Ends a game.
+            </summary>
+        </member>
+        <member name="M:MonoGame1.DropEmGameWindow.NewGame">
+            <summary>
+            Creates a new game.
+            </summary>
+        </member>
+        <member name="T:DropEm.Game.Cfg">
+            <summary>
+            A configuration.
+            </summary>
+        </member>
+        <member name="F:DropEm.Game.Cfg.GAME_ID">
+            <summary>
+            Identifier for the game.
+            </summary>
+        </member>
+        <member name="F:DropEm.Game.Cfg.MAX_TILE_ID">
+            <summary>
+            There can be three tiles of the same color:shape combination.
+            </summary>
+        </member>
+        <member name="F:DropEm.Game.Cfg.MAX_VAL_INDEX">
+            <summary>
+            The the numeric id for color and shape features ranges from 0 to 5.
+            </summary>
+        </member>
+        <member name="F:DropEm.Game.Cfg.Messages">
+            <summary>
+            The messages.
+            </summary>
+        </member>
+        <member name="F:DropEm.Game.Cfg.rng">
+            <summary>
+            The random number generator.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Cfg.clearMsgs">
+            <summary>
+            Clears the messages.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Cfg.createBoardCopy(DropEm.Game.DropEmTile[0:,0:])">
+             <summary>
+             Create a shallow clone of the 2D array.
+             </summary>
+            
+             <param name="tileArray"> Array of tiles. </param>
+            
+             <returns>
+             The new board copy.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Cfg.getRandomElement``1(System.Collections.Generic.IList{``0})">
+             <summary>
+             An IList&lt;T&gt; extension method that gets random element.
+             </summary>
+            
+             <typeparam name="T"> Generic type parameter. </typeparam>
+             <param name="list"> The list to act on. </param>
+            
+             <returns>
+             The random element.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Cfg.getTileFeatureID(System.Int32,System.Int32)">
+             <summary>
+             Gets tile feature identifier.
+             </summary>
+            
+             <param name="colorIndex"> Zero-based index of the color. </param>
+             <param name="shapeIndex"> Zero-based index of the shape. </param>
+            
+             <returns>
+             The tile feature identifier.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Cfg.listShallowClone``1(System.Collections.Generic.IList{``0})">
+             <summary>
+             An IList&lt;T&gt; extension method that lists shallow clone.
+             </summary>
+            
+             <typeparam name="T"> Generic type parameter. </typeparam>
+             <param name="list"> The list to act on. </param>
+            
+             <returns>
+             A List&lt;T&gt;
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Cfg.Pop``1(System.Collections.Generic.IList{``0},System.Int32)">
+             <summary>
+             An IList&lt;T&gt; extension method that removes and returns the top-of-
+             stack object.
+             </summary>
+            
+             <typeparam name="T"> Generic type parameter. </typeparam>
+             <param name="list">  The list to act on. </param>
+             <param name="index"> Zero-based index of the. </param>
+            
+             <returns>
+             The previous top-of-stack object.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Cfg.showMsg(System.String)">
+             <summary>
+             Shows the message.
+             </summary>
+            
+             <param name="msg"> The message. </param>
+        </member>
+        <member name="M:DropEm.Game.Cfg.showMsg(System.String,System.Object[])">
+             <summary>
+             Shows the message.
+             </summary>
+            
+             <param name="format"> Describes the format to use. </param>
+             <param name="arg">      A variable-length parameters list containing
+                                     argument. </param>
+        </member>
+        <member name="M:DropEm.Game.Cfg.Shuffle``1(System.Collections.Generic.IList{``0})">
+             <summary>
+             Fisher-Yates shuffle.
+             </summary>
+            
+             <typeparam name="T"> Generic type parameter. </typeparam>
+             <param name="list"> The list to act on. </param>
+        </member>
+        <member name="T:DropEm.Game.AbstractPos">
+            <summary>
+            An abstract position.
+            </summary>
+        </member>
+        <member name="T:DropEm.Game.AbstractTile">
+            <summary>
+            An abstract tile.
+            </summary>
+        </member>
+        <member name="T:DropEm.Game.CandidateTilePos">
+            <summary>
+            [SC] the same sequence of tiles can be placed on board with different
+            possible combinations of tile positions [SC] object of this class
+            represents one possible combination of tile positions.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.CandidateTilePos.#ctor(DropEm.Game.CandidateTileSeq,System.Collections.Generic.List{DropEm.Game.AbstractPos},System.Int32)">
+             <summary>
+             Initializes a new instance of the
+             DropEm.Game.DataStructure.CandidateTilePos class.
+             </summary>
+            
+             <param name="candTileSequence"> The candidate tile sequence. </param>
+             <param name="posList">          List of positions. </param>
+             <param name="totalScore">       The total number of score. </param>
+        </member>
+        <member name="M:DropEm.Game.CandidateTilePos.getAbstrPosAt(System.Int32)">
+             <summary>
+             Gets abstr position at.
+             </summary>
+            
+             <param name="index"> Zero-based index of the. </param>
+            
+             <returns>
+             The abstr position at.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.CandidateTilePos.getCandidateTileSeq">
+             <summary>
+             Gets candidate tile sequence.
+             </summary>
+            
+             <returns>
+             The candidate tile sequence.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.CandidateTilePos.getComboLength">
+             <summary>
+             Gets combo length.
+             </summary>
+            
+             <returns>
+             The combo length.
+             </returns>
+        </member>
+        <member name="P:DropEm.Game.CandidateTilePos.TotalScore">
+             <summary>
+             Gets or sets the total number of score.
+             </summary>
+            
+             <value>
+             The total number of score.
+             </value>
+        </member>
+        <member name="T:DropEm.Game.CandidateTileSeq">
+            <summary>
+            The same list of tiles can be placed on a board in different possible
+            orders (tile sequences).
+            
+            Object of this class represents one possible sequence of tiles.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.CandidateTileSeq.#ctor(System.Collections.Generic.List{DropEm.Game.DropEmTile})">
+             <summary>
+             Initializes a new instance of the
+             DropEm.Game.DataStructure.CandidateTileSeq class.
+             </summary>
+            
+             <param name="tileSequence"> The tile sequence. </param>
+        </member>
+        <member name="M:DropEm.Game.CandidateTileSeq.addCandTilePos(DropEm.Game.CandidateTilePos)">
+             <summary>
+             Adds a cand tile position.
+             </summary>
+            
+             <param name="candTilePos"> The cand tile position. </param>
+        </member>
+        <member name="M:DropEm.Game.CandidateTileSeq.getPosComboList">
+             <summary>
+             Gets position combo list.
+             </summary>
+            
+             <returns>
+             The position combo list.
+             </returns>
+        </member>
+        <member name="P:DropEm.Game.CandidateTileSeq.TileCount">
+             <summary>
+             Gets tile count.
+             </summary>
+            
+             <returns>
+             The tile count.
+             </returns>
+        </member>
+        <member name="P:DropEm.Game.CandidateTileSeq.Item(System.Int32)">
+             <summary>
+             Indexer to get items within this collection using array index syntax.
+             </summary>
+            
+             <param name="tileIndex"> Zero-based index of the tile. </param>
+            
+             <returns>
+             The indexed item.
+             </returns>
+        </member>
+        <member name="T:DropEm.Game.TreeNode">
+            <summary>
+            A tree node.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.TreeNode.#ctor(System.Object)">
+             <summary>
+             Initializes a new instance of the TreeNode class.
+             </summary>
+            
+             <param name="value"> The value. </param>
+        </member>
+        <member name="M:DropEm.Game.TreeNode.addChildeNode(DropEm.Game.TreeNode)">
+             <summary>
+             Adds a childe node.
+             </summary>
+            
+             <param name="childNode"> The child node. </param>
+        </member>
+        <member name="M:DropEm.Game.TreeNode.addChildNodeValue(System.Object)">
+             <summary>
+             Adds a child node value.
+             </summary>
+            
+             <param name="value"> The value. </param>
+            
+             <returns>
+             A TreeNode.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.TreeNode.getChildNodes">
+             <summary>
+             Gets a child nodes.
+             </summary>
+            
+             <returns>
+             The child nodes.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.TreeNode.getValue">
+             <summary>
+             Gets the value.
+             </summary>
+            
+             <returns>
+             The value.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.TreeNode.hasChildNodes">
+             <summary>
+             Query if this object has child nodes.
+             </summary>
+            
+             <returns>
+             true if child nodes, false if not.
+             </returns>
+        </member>
+        <member name="T:DropEm.Game.DropEmGame">
+            <summary>
+            A DropEm game.
+            </summary>
+        </member>
+        <member name="F:DropEm.Game.DropEmGame.correctAnswer">
+            <summary>
+            The correct answer.
+            </summary>
+        </member>
+        <member name="F:DropEm.Game.DropEmGame.perGameStopWatch">
+            <summary>
+            The software.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.#ctor(HAT.HATAsset)">
+            <summary>
+            Initializes a new instance of the DropEm.Game.DropEmGame
+            class.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.dropHumanPlayerTile">
+            <summary>
+            Drop human player tile.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.dropPlayerTile(System.Int32)">
+             <summary>
+             Drop player tile.
+             </summary>
+            
+             <param name="playerIndex"> Zero-based index of the player. </param>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.endGame">
+            <summary>
+            Ends a game.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.isSelected">
+             <summary>
+             Query if a board cell is selected.
+             </summary>
+            
+             <returns>
+             true if selected, false if not.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.endHumanPlayerTurn">
+            <summary>
+            Ends human player turn.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.endTurn(System.Int32)">
+             <summary>
+             Ends a turn.
+             </summary>
+            
+             <param name="playerIndex"> Zero-based index of the player. </param>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.endTurn">
+             <summary>
+             Ends a turn.
+             </summary>
+            
+             <returns>
+             true if it succeeds, false if it fails.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.forceEndGame">
+            <summary>
+            Force end game.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.getHumanPlayerTileByIndex(System.Int32)">
+             <summary>
+             Gets human player tile by index.
+             </summary>
+            
+             <param name="tileIndex"> Zero-based index of the tile. </param>
+            
+             <returns>
+             The human player tile by index.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.getPlayerNameByIndex(System.Int32)">
+             <summary>
+             Gets player name by index.
+             </summary>
+            
+             <param name="playerIndex"> Zero-based index of the player. </param>
+            
+             <returns>
+             The player name by index.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.getPlayerScoreByIndex(System.Int32)">
+             <summary>
+             Gets player score by index.
+             </summary>
+            
+             <param name="playerIndex"> Zero-based index of the player. </param>
+            
+             <returns>
+             The player score by index.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.getVirtualBoard">
+             <summary>
+             Gets virtual board.
+             </summary>
+            
+             <returns>
+             The virtual board.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.initNewGame(System.String,System.String,System.String,System.String[],System.Boolean,System.Int32)">
+             <summary>
+             Initialises the new game.
+             </summary>
+            
+             <param name="adaptID">           Identifier for the adapt. </param>
+             <param name="playerName">        Name of the player. </param>
+             <param name="aiID">              Identifier for the ai. </param>
+             <param name="giveHint">          true to give hint. </param>
+             <param name="playableTileCount"> Number of playable tiles. </param>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.placeHumanPlayerTileOnBoard">
+            <summary>
+            Place human player tile on board.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.placePlayerTileOnBoard(System.Int32)">
+             <summary>
+             Place player tile on board.
+             </summary>
+            
+             <param name="playerIndex"> Zero-based index of the player. </param>
+            
+             <returns>
+             true if it succeeds, false if it fails.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.resetSelected">
+            <summary>
+            Resets the selected.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.setSelectedCell(System.Int32,System.Int32,System.Int32)">
+             <summary>
+             Sets selected cell.
+             </summary>
+            
+             <param name="rowIndex">    Zero-based index of the row. </param>
+             <param name="colIndex">    Zero-based index of the col. </param>
+             <param name="playerIndex"> Zero-based index of the player. </param>
+            
+             <returns>
+             true if it succeeds, false if it fails.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.setSelectedPlayerTile(System.Int32,System.Int32,System.Int32)">
+             <summary>
+             Sets selected player tile.
+             </summary>
+            
+             <param name="colorIndex"> Zero-based index of the color. </param>
+             <param name="shapeIndex"> Zero-based index of the shape. </param>
+             <param name="tileID">     Identifier for the tile. </param>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.startNewGame">
+            <summary>
+            Starts new game.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.startTurn">
+            <summary>
+            Starts a turn.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.createPlayers(System.String,System.String[],System.Boolean)">
+             <summary>
+             Creates the players.
+             </summary>
+            
+             <param name="playerName"> Name of the player. </param>
+             <param name="aiID">       Identifier for the ai. </param>
+             <param name="giveHint">   true to give hint. </param>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.createTileBag">
+            <summary>
+            Creates tile bag.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.fillPlayerTiles(DropEm.Game.Player)">
+             <summary>
+             Fill player tiles.
+             </summary>
+            
+             <param name="player"> The player. </param>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.putStartingTiles">
+            <summary>
+            Puts starting tiles.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.putTileOnBoard(System.Int32,System.Int32,DropEm.Game.DropEmTile,System.Boolean)">
+             <summary>
+             put a given tile on a specified board position; validCheck is true then verify if the move conforms to game rules
+             </summary>
+            
+             <param name="rowIndex">   Zero-based index of the row. </param>
+             <param name="colIndex">   Zero-based index of the col. </param>
+             <param name="tile">       The tile. </param>
+             <param name="validCheck"> true to valid check. </param>
+            
+             <returns>
+             An int.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.DropEmGame.verifyPlayableTileCount(System.Int32,System.Int32)">
+             <summary>
+             Verify playable tile count.
+             </summary>
+            
+             <param name="tileCount">     Number of tiles. </param>
+             <param name="aiPlayerCount"> Number of ai players. </param>
+            
+             <returns>
+             true if it succeeds, false if it fails.
+             </returns>
+        </member>
+        <member name="P:DropEm.Game.DropEmGame.ActiveGameFlag">
+             <summary>
+             Gets or sets a value indicating whether the active game flag.
+             </summary>
+            
+             <value>
+             true if active game flag, false if not.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.DropEmGame.ActivePlayerIndex">
+             <summary>
+             Gets or sets the active player index.
+             </summary>
+            
+             <value>
+             The active player index.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.DropEmGame.EndGameFlag">
+             <summary>
+             Gets or sets a value indicating whether the end game flag.
+             </summary>
+            
+             <value>
+             true if end game flag, false if not.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.DropEmGame.EndTurnFlag">
+             <summary>
+             Gets or sets a value indicating whether the end turn flag.
+             </summary>
+            
+             <value>
+             true if end turn flag, false if not.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.DropEmGame.humanPlayer">
+             <summary>
+             Gets the human player.
+             </summary>
+            
+             <value>
+             The human player.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.DropEmGame.NewGameInitFlag">
+             <summary>
+             Gets or sets a value indicating whether the new game initialise flag.
+             </summary>
+            
+             <value>
+             true if new game initialise flag, false if not.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.DropEmGame.PlayerCount">
+             <summary>
+             Gets the number of players.
+             </summary>
+            
+             <value>
+             The number of players.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.DropEmGame.StartTurnFlag">
+             <summary>
+             Gets or sets a value indicating whether the start turn flag.
+             </summary>
+            
+             <value>
+             true if start turn flag, false if not.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.DropEmGame.aiPlayerTurnScore">
+             <summary>
+             Gets or sets the ai player turn score.
+             </summary>
+            
+             <value>
+             The ai player turn score.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.DropEmGame.humanPlayerTurnScore">
+             <summary>
+             Gets or sets the human player turn score.
+             </summary>
+            
+             <value>
+             The human player turn score.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.DropEmGame.aiPlayer">
+             <summary>
+             Gets or sets the ai player.
+             </summary>
+            
+             <value>
+             The ai player.
+             </value>
+        </member>
+        <member name="T:DropEm.Game.Player">
+            <summary>
+            A player.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Player.#ctor(System.Int32,System.String,System.Boolean,DropEm.Game.DropEmGame)">
+             <summary>
+             Initializes a new instance of the DropEm.Game.Player class.
+             </summary>
+            
+             <param name="playerIndex"> The player index. </param>
+             <param name="playerType">  The type of the player. </param>
+             <param name="hintFlag">    true if hint flag, false if not. </param>
+             <param name="game">        The game. </param>
+        </member>
+        <member name="M:DropEm.Game.Player.createPlayerName">
+             <summary>
+             Creates player name.
+             </summary>
+            
+             <returns>
+             The new player name.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Player.resetGameVars">
+            <summary>
+            Resets the game variables.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Player.resetTurnVars">
+            <summary>
+            Resets the turn variables.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Player.addTile(DropEm.Game.DropEmTile)">
+             <summary>
+             Adds a tile.
+             </summary>
+            
+             <param name="tile"> The tile. </param>
+            
+             <returns>
+             true if it succeeds, false if it fails.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Player.removeTile(DropEm.Game.DropEmTile)">
+             <summary>
+             Removes the tile described by tile.
+             </summary>
+            
+             <param name="tile"> The tile. </param>
+        </member>
+        <member name="M:DropEm.Game.Player.getTileAt(System.Int32)">
+             <summary>
+             Gets tile at.
+             </summary>
+            
+             <param name="index"> Zero-based index of the. </param>
+            
+             <returns>
+             The tile at.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Player.setSelectedTile(DropEm.Game.DropEmTile)">
+             <summary>
+             Sets selected tile.
+             </summary>
+            
+             <param name="tile"> The tile. </param>
+            
+             <returns>
+             true if it succeeds, false if it fails.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Player.setSelectedTile(System.Int32,System.Int32,System.Int32)">
+             <summary>
+             Sets selected tile.
+             </summary>
+            
+             <param name="colorIndex"> Zero-based index of the color. </param>
+             <param name="shapeIndex"> Zero-based index of the shape. </param>
+             <param name="tileID">     Identifier for the tile. </param>
+            
+             <returns>
+             true if it succeeds, false if it fails.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Player.resetSelected">
+            <summary>
+            Resets the selected.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Player.removeSelectedTile">
+            <summary>
+            Removes the selected tile.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Player.disableMismatchedTiles(System.Int32,System.Int32)">
+             <summary>
+             Disables the mismatched tiles.
+             </summary>
+            
+             <param name="colorIndex"> Zero-based index of the color. </param>
+             <param name="shapeIndex"> Zero-based index of the shape. </param>
+        </member>
+        <member name="M:DropEm.Game.Player.resetTiles">
+            <summary>
+            Resets the tiles.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Player.getPlayerScore">
+             <summary>
+             Gets player score.
+             </summary>
+            
+             <returns>
+             The player score.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Player.increaseScore(System.Int32)">
+             <summary>
+             Increase score.
+             </summary>
+            
+             <param name="score"> The score. </param>
+        </member>
+        <member name="M:DropEm.Game.Player.getColorReq">
+             <summary>
+             Gets color request.
+             </summary>
+            
+             <returns>
+             The color request.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Player.setColorReq(System.Int32)">
+             <summary>
+             Sets color request.
+             </summary>
+            
+             <param name="colorIndex"> Zero-based index of the color. </param>
+        </member>
+        <member name="M:DropEm.Game.Player.hasColorReq">
+             <summary>
+             Query if this object has color request.
+             </summary>
+            
+             <returns>
+             true if color request, false if not.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Player.sameColorReq(System.Int32)">
+             <summary>
+             Same color request.
+             </summary>
+            
+             <param name="colorIndex"> Zero-based index of the color. </param>
+            
+             <returns>
+             true if it succeeds, false if it fails.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Player.resetColorReq">
+            <summary>
+            Resets the color request.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Player.getShapeReq">
+             <summary>
+             Gets shape request.
+             </summary>
+            
+             <returns>
+             The shape request.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Player.setShapeReq(System.Int32)">
+             <summary>
+             Sets shape request.
+             </summary>
+            
+             <param name="shapeIndex"> Zero-based index of the shape. </param>
+        </member>
+        <member name="M:DropEm.Game.Player.hasShapeReq">
+             <summary>
+             Query if this object has shape request.
+             </summary>
+            
+             <returns>
+             true if shape request, false if not.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Player.sameShapeReq(System.Int32)">
+             <summary>
+             Same shape request.
+             </summary>
+            
+             <param name="shapeIndex"> Zero-based index of the shape. </param>
+            
+             <returns>
+             true if it succeeds, false if it fails.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Player.resetShapeReq">
+            <summary>
+            Resets the shape request.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Player.getAIHint">
+            <summary>
+            Gets an i hint.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Player.invokeVeryEasyAI">
+            <summary>
+            Executes the very easy an i on a different thread, and waits for the
+            result. Puts only a single tile on a board.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Player.invokeEasyAI">
+            <summary>
+            Executes the easy an i on a different thread, and waits for the
+            result.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Player.invokeColorOnlyMediumAI">
+            <summary>
+            Executes the color only medium an i on a different thread, and waits for
+            the result.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Player.invokeShapeOnlyMediumAI">
+            <summary>
+            Executes the shape only medium an i on a different thread, and waits for
+            the result.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Player.invokeHardAI">
+            <summary>
+            Executes the hard an i on a different thread, and waits for the
+            result.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Player.boardPosPermTraverseTreePaths(DropEm.Game.TreeNode,System.Collections.Generic.List{DropEm.Game.AbstractPos},DropEm.Game.CandidateTileSeq,System.Int32,System.Collections.Generic.List{DropEm.Game.CandidateTilePos},System.Collections.Generic.List{DropEm.Game.CandidateTilePos})">
+             <summary>
+             Board position permission traverse tree paths.
+             
+             Gets the combo with the second highest score
+             </summary>
+            
+             <param name="rootNode">           The root node. </param>
+             <param name="currPath">           Full pathname of the curr file. </param>
+             <param name="candTileSeq">        The cand tile sequence. </param>
+             <param name="currScore">          The curr score. </param>
+             <param name="chosenPosComboList">   List of chosen position comboes. </param>
+             <param name="maxScorePosCombo">     The maximum score position combo. </param>
+        </member>
+        <member name="M:DropEm.Game.Player.invokeVeryHardAI">
+            <summary>
+            Executes the very hard an i on a different thread, and waits for the
+            result.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.Player.calculateMoves(System.Boolean,System.Boolean,System.Boolean)">
+             <summary>
+             1. Create lists of tiles where each list is a group of tiles with the
+             same color or shape. 2. For each group of tiles, create lists of tile
+             sequences where each list contains a sequence of tiles in a unique order.
+             3. For each tile sequence, create a combination of unique board positions.
+             </summary>
+            
+             <param name="considerColor"> true to consider color. </param>
+             <param name="considerShape"> true to consider shape. </param>
+             <param name="suboptiomal">   true to suboptiomal. </param>
+            
+             <returns>
+             The calculated moves.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.Player.boardPosPermAddChildNodes(DropEm.Game.CandidateTileSeq,System.Int32,DropEm.Game.TreeNode,DropEm.Game.DropEmTile[0:,0:],DropEm.Game.VirtualDropEmBoard)">
+             <summary>
+             Board position permission add child nodes.
+             </summary>
+            
+             <param name="candTileSeq">   The cand tile sequence. </param>
+             <param name="currTileIndex"> Zero-based index of the curr tile. </param>
+             <param name="parentNode">    The parent node. </param>
+             <param name="tileArray">     Array of tiles. </param>
+             <param name="virtualBoard">  The virtual board. </param>
+        </member>
+        <member name="M:DropEm.Game.Player.boardPosPermTraverseTreePaths(DropEm.Game.TreeNode,System.Collections.Generic.List{DropEm.Game.AbstractPos},DropEm.Game.CandidateTileSeq,System.Int32,System.Collections.Generic.List{DropEm.Game.CandidateTilePos})">
+             <summary>
+             Board position permission traverse tree paths.
+             
+              Gets the combo with the second highest score.
+             </summary>
+            
+             <param name="rootNode">             The root node. </param>
+             <param name="currPath">             Full pathname of the curr file. </param>
+             <param name="candTileSeq">          The cand tile sequence. </param>
+             <param name="currScore">            The curr score. </param>
+             <param name="maxScorePosComboList"> List of maximum score position
+                                                 comboes. </param>
+        </member>
+        <member name="M:DropEm.Game.Player.tileListPermAddChildNodes(System.Collections.Generic.List{DropEm.Game.DropEmTile},System.Int32,DropEm.Game.TreeNode)">
+             <summary>
+             Tile list permission add child nodes.
+             </summary>
+            
+             <param name="tileList">      List of tiles. </param>
+             <param name="childValIndex"> Zero-based index of the child value. </param>
+             <param name="rootNode">      The root node. </param>
+        </member>
+        <member name="M:DropEm.Game.Player.tileListPermTraverseTreePaths(DropEm.Game.TreeNode,System.Collections.Generic.List{DropEm.Game.DropEmTile},System.Int32,System.Int32,System.Collections.Generic.List{DropEm.Game.CandidateTileSeq})">
+             <summary>
+             Tile list permission traverse tree paths.
+             </summary>
+            
+             <param name="rootNode">        The root node. </param>
+             <param name="currPath">        Full pathname of the curr file. </param>
+             <param name="attrValueIndex">   Zero-based index of the attribute value. </param>
+             <param name="attrIndex">       Zero-based index of the attribute. </param>
+             <param name="candTileSeqList"> List of cand tile sequences. </param>
+        </member>
+        <member name="P:DropEm.Game.Player.Human">
+             <summary>
+             Gets a value indicating whether the human.
+             </summary>
+            
+             <value>
+             true if human, false if not.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.Player.PlayerTileCount">
+             <summary>
+             Gets the number of player tiles.
+             </summary>
+            
+             <value>
+             The number of player tiles.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.Player.isTileSelected">
+             <summary>
+             Gets a value indicating whether this object is tile selected.
+             </summary>
+            
+             <value>
+             true if this object is tile selected, false if not.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.Player.SelectedTile">
+             <summary>
+             Gets the selected tile.
+             </summary>
+            
+             <value>
+             The selected tile.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.Player.HintFlag">
+             <summary>
+             Gets a value indicating whether the hint flag.
+             </summary>
+            
+             <value>
+             true if hint flag, false if not.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.Player.PlayerName">
+             <summary>
+             Gets or sets the name of the player.
+             </summary>
+            
+             <value>
+             The name of the player.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.Player.PlayerIndex">
+             <summary>
+             Gets the zero-based index of the player.
+             </summary>
+            
+             <value>
+             The player index.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.Player.PlayerType">
+             <summary>
+             Gets the type of the player.
+             </summary>
+            
+             <value>
+             The type of the player.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.Player.isHuman">
+             <summary>
+             Gets a value indicating whether this object is human.
+             </summary>
+            
+             <value>
+             true if this object is human, false if not.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.Player.CanDrop">
+             <summary>
+             Gets or sets a value indicating whether we can drop.
+             </summary>
+            
+             <value>
+             true if we can drop, false if not.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.Player.CanMove">
+             <summary>
+             Gets or sets a value indicating whether we can move.
+             </summary>
+            
+             <value>
+             true if we can move, false if not.
+             </value>
+        </member>
+        <member name="M:DropEm.Game.DropEmTile.#ctor(System.Int32,System.Int32,System.Int32)">
+             <summary>
+             Initializes a new instance of the DropEm.Game.DropEmTile
+             class.
+             </summary>
+            
+             <param name="colorIndex"> Zero-based index of the color. </param>
+             <param name="shapeIndex"> Zero-based index of the shape. </param>
+             <param name="tileID">     Identifier for the tile. </param>
+        </member>
+        <member name="M:DropEm.Game.DropEmTile.resetTile">
+            <summary>
+            Resets the tile.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.DropEmTile.sameTile(System.Int32,System.Int32,System.Int32)">
+             <summary>
+             Same tile.
+             </summary>
+            
+             <param name="colorIndex"> Zero-based index of the color. </param>
+             <param name="shapeIndex"> Zero-based index of the shape. </param>
+             <param name="tileID">     Identifier for the tile. </param>
+            
+             <returns>
+             true if it succeeds, false if it fails.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.DropEmTile.ToString">
+             <summary>
+             Returns a string that represents the current object.
+             </summary>
+            
+             <returns>
+             A string that represents the current object.
+             </returns>
+        </member>
+        <member name="P:DropEm.Game.DropEmTile.CanDrop">
+             <summary>
+             Gets or sets the can drop.
+             </summary>
+            
+             <value>
+             .
+             </value>
+        </member>
+        <member name="P:DropEm.Game.DropEmTile.ColorIndex">
+             <summary>
+             Gets the zero-based index of the color.
+             </summary>
+            
+             <value>
+             The color index.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.DropEmTile.Playable">
+             <summary>
+             Gets or sets the playable.
+             </summary>
+            
+             <value>
+             .
+             </value>
+        </member>
+        <member name="P:DropEm.Game.DropEmTile.ShapeIndex">
+             <summary>
+             Gets the zero-based index of the shape.
+             </summary>
+            
+             <value>
+             The shape index.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.DropEmTile.TileID">
+             <summary>
+             Gets the identifier of the tile.
+             </summary>
+            
+             <value>
+             The identifier of the tile.
+             </value>
+        </member>
+        <member name="T:DropEm.Game.DropEmTile.TileColors">
+            <summary>
+            Values that represent tile colors.
+            </summary>
+        </member>
+        <member name="T:DropEm.Game.DropEmTile.TileShapes">
+            <summary>
+            Values that represent tile shapes.
+            </summary>
+        </member>
+        <member name="T:DropEm.Game.VirtualDropEmBoard">
+            <summary>
+            A virtual drop em board.
+            </summary>
+        </member>
+        <member name="F:DropEm.Game.VirtualDropEmBoard.tileArray">
+            <summary>
+            Array of tiles.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.VirtualDropEmBoard.#ctor">
+            <summary>
+            Initializes a new instance of the DropEm.Game.VirtualDropEmBoard class.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.VirtualDropEmBoard.addTile(System.Int32,System.Int32,DropEm.Game.DropEmTile,System.Boolean,DropEm.Game.DropEmTile[0:,0:])">
+             <summary>
+             Adds a tile.
+             </summary>
+            
+             <param name="rowIndex">   Zero-based index of the row. </param>
+             <param name="colIndex">   Zero-based index of the col. </param>
+             <param name="tile">       The tile. </param>
+             <param name="validCheck"> true to valid check. </param>
+             <param name="tileArrayP"> The tile array p. </param>
+            
+             <returns>
+             An int.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.VirtualDropEmBoard.getBoardCopy">
+             <summary>
+             Gets board copy.
+             </summary>
+            
+             <returns>
+             The board copy.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.VirtualDropEmBoard.isValidMove(System.Int32,System.Int32,DropEm.Game.DropEmTile,System.Boolean,DropEm.Game.DropEmTile[0:,0:],System.Boolean)">
+             <summary>
+             Is valid move.
+             </summary>
+            
+             <param name="rowIndex">   Zero-based index of the row. </param>
+             <param name="colIndex">   Zero-based index of the col. </param>
+             <param name="tile">       The tile. </param>
+             <param name="validCheck"> true to valid check. </param>
+             <param name="tileArrayP"> The tile array p. </param>
+             <param name="showMsg">      true to show, false to hide the message. </param>
+            
+             <returns>
+             An int.
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.VirtualDropEmBoard.resetBoard">
+            <summary>
+            Resets the board.
+            </summary>
+        </member>
+        <member name="M:DropEm.Game.VirtualDropEmBoard.hasBottomTile(System.Int32,System.Int32,DropEm.Game.DropEmTile[0:,0:])">
+             <summary>
+             Query if 'rowIndex' has bottom tile.
+             </summary>
+            
+             <param name="rowIndex">   Zero-based index of the row. </param>
+             <param name="colIndex">   Zero-based index of the col. </param>
+             <param name="tileArrayP"> The tile array p. </param>
+            
+             <returns>
+             returns true if the bottom cell adjacent to the indicated cell has a tile
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.VirtualDropEmBoard.hasLeftTile(System.Int32,System.Int32,DropEm.Game.DropEmTile[0:,0:])">
+             <summary>
+             Query if 'rowIndex' has left tile.
+             </summary>
+            
+             <param name="rowIndex">   Zero-based index of the row. </param>
+             <param name="colIndex">   Zero-based index of the col. </param>
+             <param name="tileArrayP"> The tile array p. </param>
+            
+             <returns>
+             returns true if the left cell adjacent to the indicated cell has a tile
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.VirtualDropEmBoard.hasRightTile(System.Int32,System.Int32,DropEm.Game.DropEmTile[0:,0:])">
+             <summary>
+             Query if 'rowIndex' has right tile.
+             </summary>
+            
+             <param name="rowIndex">   Zero-based index of the row. </param>
+             <param name="colIndex">   Zero-based index of the col. </param>
+             <param name="tileArrayP"> The tile array p. </param>
+            
+             <returns>
+             returns true if the right cell adjacent to the indicated cell has a tile
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.VirtualDropEmBoard.hasTile(System.Int32,System.Int32,DropEm.Game.DropEmTile[0:,0:])">
+             <summary>
+             Query if 'rowIndex' has tile.
+             </summary>
+            
+             <param name="rowIndex">   Zero-based index of the row. </param>
+             <param name="colIndex">   Zero-based index of the col. </param>
+             <param name="tileArrayP"> The tile array p. </param>
+            
+             <returns>
+             returns true if the indicated cell has a tile
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.VirtualDropEmBoard.hasTopTile(System.Int32,System.Int32,DropEm.Game.DropEmTile[0:,0:])">
+             <summary>
+             Query if 'rowIndex' has top tile.
+             </summary>
+            
+             <param name="rowIndex">   Zero-based index of the row. </param>
+             <param name="colIndex">   Zero-based index of the col. </param>
+             <param name="tileArrayP"> The tile array p. </param>
+            
+             <returns>
+             returns true if the top cell adjacent to the indicated cell has a tile
+             </returns>
+        </member>
+        <member name="M:DropEm.Game.VirtualDropEmBoard.isValidSequence(System.Int32,System.Int32,DropEm.Game.Cfg.Direction,DropEm.Game.DropEmTile[0:,0:],System.Boolean)">
+             <summary>
+             Is valid sequence.
+             </summary>
+            
+             <param name="rowIndex">    Zero-based index of the row. </param>
+             <param name="colIndex">    Zero-based index of the col. </param>
+             <param name="orientation"> The orientation. </param>
+             <param name="tileArrayP">  The tile array p. </param>
+             <param name="showMsg">      true to show, false to hide the message. </param>
+            
+             <returns>
+             An int.
+             </returns>
+        </member>
+        <member name="P:DropEm.Game.VirtualDropEmBoard.colCount">
+             <summary>
+             Gets the number of cols.
+             </summary>
+            
+             <value>
+             The number of cols.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.VirtualDropEmBoard.rowCount">
+             <summary>
+             Gets the number of rows.
+             </summary>
+            
+             <value>
+             The number of rows.
+             </value>
+        </member>
+        <member name="P:DropEm.Game.VirtualDropEmBoard.Item(System.Int32,System.Int32)">
+             <summary>
+             Indexer to get items within this collection using array index syntax.
+             </summary>
+            
+             <param name="r"> The int to process. </param>
+             <param name="c"> The int to process. </param>
+            
+             <returns>
+             The indexed item.
+             </returns>
+        </member>
+        <member name="T:C3.XNA.Primitives2D">
+            <summary>
+            The primitives 2d.
+            
+            See https://bitbucket.org/C3/2d-xna-primitives/wiki/Home
+            
+            This work is licensed under the zlib license, which is pretty close to saying: do what you want.
+            </summary>
+        </member>
+        <member name="F:C3.XNA.Primitives2D.circleCache">
+            <summary>
+            The circle cache.
+            </summary>
+        </member>
+        <member name="F:C3.XNA.Primitives2D.pixel">
+            <summary>
+            The pixel.
+            </summary>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawArc(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.Single,System.Int32,System.Single,System.Single,Microsoft.Xna.Framework.Color)">
+             <summary>
+             Draw a arc.
+             </summary>
+            
+             <param name="spriteBatch">   The destination drawing surface. </param>
+             <param name="center">        The center of the arc. </param>
+             <param name="radius">        The radius of the arc. </param>
+             <param name="sides">         The number of sides to generate. </param>
+             <param name="startingAngle">    The starting angle of arc, 0 being to the
+                                             east, increasing as you go clockwise. </param>
+             <param name="radians">          The number of radians to draw, clockwise
+                                             from the starting angle. </param>
+             <param name="color">         The color of the arc. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawArc(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.Single,System.Int32,System.Single,System.Single,Microsoft.Xna.Framework.Color,System.Single)">
+             <summary>
+             Draw a arc.
+             </summary>
+            
+             <param name="spriteBatch">   The destination drawing surface. </param>
+             <param name="center">        The center of the arc. </param>
+             <param name="radius">        The radius of the arc. </param>
+             <param name="sides">         The number of sides to generate. </param>
+             <param name="startingAngle">    The starting angle of arc, 0 being to the
+                                             east, increasing as you go clockwise. </param>
+             <param name="radians">          The number of radians to draw, clockwise
+                                             from the starting angle. </param>
+             <param name="color">         The color of the arc. </param>
+             <param name="thickness">     The thickness of the arc. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawCircle(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.Single,System.Int32,Microsoft.Xna.Framework.Color)">
+             <summary>
+             Draw a circle.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="center">      The center of the circle. </param>
+             <param name="radius">      The radius of the circle. </param>
+             <param name="sides">       The number of sides to generate. </param>
+             <param name="color">       The color of the circle. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawCircle(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.Single,System.Int32,Microsoft.Xna.Framework.Color,System.Single)">
+             <summary>
+             Draw a circle.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="center">      The center of the circle. </param>
+             <param name="radius">      The radius of the circle. </param>
+             <param name="sides">       The number of sides to generate. </param>
+             <param name="color">       The color of the circle. </param>
+             <param name="thickness">   The thickness of the lines used. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawCircle(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Single,System.Single,System.Single,System.Int32,Microsoft.Xna.Framework.Color)">
+             <summary>
+             Draw a circle.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="x">           The center X of the circle. </param>
+             <param name="y">           The center Y of the circle. </param>
+             <param name="radius">      The radius of the circle. </param>
+             <param name="sides">       The number of sides to generate. </param>
+             <param name="color">       The color of the circle. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawCircle(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Single,System.Single,System.Single,System.Int32,Microsoft.Xna.Framework.Color,System.Single)">
+             <summary>
+             Draw a circle.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="x">           The center X of the circle. </param>
+             <param name="y">           The center Y of the circle. </param>
+             <param name="radius">      The radius of the circle. </param>
+             <param name="sides">       The number of sides to generate. </param>
+             <param name="color">       The color of the circle. </param>
+             <param name="thickness">   The thickness of the lines used. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawLine(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)">
+             <summary>
+             Draws a line from point1 to point2 with an offset.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="x1">          The X coord of the first point. </param>
+             <param name="y1">          The Y coord of the first point. </param>
+             <param name="x2">          The X coord of the second point. </param>
+             <param name="y2">          The Y coord of the second point. </param>
+             <param name="color">       The color to use. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawLine(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color,System.Single)">
+             <summary>
+             Draws a line from point1 to point2 with an offset.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="x1">          The X coord of the first point. </param>
+             <param name="y1">          The Y coord of the first point. </param>
+             <param name="x2">          The X coord of the second point. </param>
+             <param name="y2">          The Y coord of the second point. </param>
+             <param name="color">       The color to use. </param>
+             <param name="thickness">   The thickness of the line. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawLine(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)">
+             <summary>
+             Draws a line from point1 to point2 with an offset.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="point1">      The first point. </param>
+             <param name="point2">      The second point. </param>
+             <param name="color">       The color to use. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawLine(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)">
+             <summary>
+             Draws a line from point1 to point2 with an offset.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="point1">      The first point. </param>
+             <param name="point2">      The second point. </param>
+             <param name="color">       The color to use. </param>
+             <param name="thickness">   The thickness of the line. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawLine(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.Single,System.Single,Microsoft.Xna.Framework.Color)">
+             <summary>
+             Draws a line from point1 to point2 with an offset.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="point">       The starting point. </param>
+             <param name="length">      The length of the line. </param>
+             <param name="angle">        The angle of this line from the starting
+                                         point in radians. </param>
+             <param name="color">       The color to use. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawLine(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.Single,System.Single,Microsoft.Xna.Framework.Color,System.Single)">
+             <summary>
+             Draws a line from point1 to point2 with an offset.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="point">       The starting point. </param>
+             <param name="length">      The length of the line. </param>
+             <param name="angle">        The angle of this line from the starting
+                                         point. </param>
+             <param name="color">       The color to use. </param>
+             <param name="thickness">   The thickness of the line. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawRectangle(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color)">
+             <summary>
+             Draws a rectangle with the thickness provided.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="rect">        The rectangle to draw. </param>
+             <param name="color">       The color to draw the rectangle in. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawRectangle(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color,System.Single)">
+             <summary>
+             Draws a rectangle with the thickness provided.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="rect">        The rectangle to draw. </param>
+             <param name="color">       The color to draw the rectangle in. </param>
+             <param name="thickness">   The thickness of the lines. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawRectangle(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)">
+             <summary>
+             Draws a rectangle with the thickness provided.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="location">    Where to draw. </param>
+             <param name="size">        The size of the rectangle. </param>
+             <param name="color">       The color to draw the rectangle in. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawRectangle(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)">
+             <summary>
+             Draws a rectangle with the thickness provided.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="location">    Where to draw. </param>
+             <param name="size">        The size of the rectangle. </param>
+             <param name="color">       The color to draw the rectangle in. </param>
+             <param name="thickness">   The thickness of the line. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.FillRectangle(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color)">
+             <summary>
+             Draws a filled rectangle.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="rect">        The rectangle to draw. </param>
+             <param name="color">       The color to draw the rectangle in. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.FillRectangle(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color,System.Single)">
+             <summary>
+             Draws a filled rectangle.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="rect">        The rectangle to draw. </param>
+             <param name="color">       The color to draw the rectangle in. </param>
+             <param name="angle">        The angle in radians to draw the rectangle
+                                         at. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.FillRectangle(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)">
+             <summary>
+             Draws a filled rectangle.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="location">    Where to draw. </param>
+             <param name="size">        The size of the rectangle. </param>
+             <param name="color">       The color to draw the rectangle in. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.FillRectangle(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)">
+             <summary>
+             Draws a filled rectangle.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="location">    Where to draw. </param>
+             <param name="size">        The size of the rectangle. </param>
+             <param name="color">       The color to draw the rectangle in. </param>
+             <param name="angle">        The angle in radians to draw the rectangle
+                                         at. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.FillRectangle(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color)">
+             <summary>
+             Draws a filled rectangle.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="x">           The X coord of the left side. </param>
+             <param name="y">           The Y coord of the upper side. </param>
+             <param name="w">           Width. </param>
+             <param name="h">           Height. </param>
+             <param name="color">       The color to draw the rectangle in. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.FillRectangle(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Color,System.Single)">
+             <summary>
+             Draws a filled rectangle.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="x">           The X coord of the left side. </param>
+             <param name="y">           The Y coord of the upper side. </param>
+             <param name="w">           Width. </param>
+             <param name="h">           Height. </param>
+             <param name="color">       The color to draw the rectangle in. </param>
+             <param name="angle">       The angle of the rectangle in radians. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.PutPixel(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Single,System.Single,Microsoft.Xna.Framework.Color)">
+             <summary>
+             A SpriteBatch extension method that puts a pixel.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="x">           The X coord of the left side. </param>
+             <param name="y">           The Y coord of the upper side. </param>
+             <param name="color">       The color to use. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.PutPixel(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)">
+             <summary>
+             A SpriteBatch extension method that puts a pixel.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="position">    The position. </param>
+             <param name="color">       The color to use. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.CreateArc(System.Single,System.Int32,System.Single,System.Single)">
+             <summary>
+             Creates a list of vectors that represents an arc.
+             </summary>
+            
+             <param name="radius">        The radius of the arc. </param>
+             <param name="sides">            The number of sides to generate in the
+                                             circle that this will cut out from. </param>
+             <param name="startingAngle">    The starting angle of arc, 0 being to the
+                                             east, increasing as you go clockwise. </param>
+             <param name="radians">          The radians to draw, clockwise from the
+                                             starting angle. </param>
+            
+             <returns>
+             A list of vectors that, if connected, will create an arc.
+             </returns>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.CreateCircle(System.Double,System.Int32)">
+             <summary>
+             Creates a list of vectors that represents a circle.
+             </summary>
+            
+             <param name="radius"> The radius of the circle. </param>
+             <param name="sides">  The number of sides to generate. </param>
+            
+             <returns>
+             A list of vectors that, if connected, will create a circle.
+             </returns>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.CreateThePixel(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+             <summary>
+             Creates the pixel.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+        </member>
+        <member name="M:C3.XNA.Primitives2D.DrawPoints(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.Collections.Generic.List{Microsoft.Xna.Framework.Vector2},Microsoft.Xna.Framework.Color,System.Single)">
+             <summary>
+             Draws a list of connecting points.
+             </summary>
+            
+             <param name="spriteBatch"> The destination drawing surface. </param>
+             <param name="position">    The position. </param>
+             <param name="points">      The points to connect with lines. </param>
+             <param name="color">       The color to use. </param>
+             <param name="thickness">   The thickness of the lines. </param>
+        </member>
+        <member name="T:MonoGame1.Program">
+            <summary>
+            The main class.
+            </summary>
+        </member>
+        <member name="M:MonoGame1.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:MonoGame1.TextureContent">
+            <summary>
+            A texture content.
+            </summary>
+        </member>
+        <member name="M:MonoGame1.TextureContent.LoadListContent``1(Microsoft.Xna.Framework.Content.ContentManager,System.String,System.String)">
+             <summary>
+             A ContentManager extension method that loads list content.
+             
+             See http://stackoverflow.com/questions/12914002/how-to-load-all-files-in-a-folder-with-xna
+             
+             This work had no explicit license specified.
+             </summary>
+            
+             <exception cref="T:System.IO.DirectoryNotFoundException">   Thrown when the requested
+                                                             directory is not present. </exception>
+            
+             <typeparam name="T"> Generic type parameter. </typeparam>
+             <param name="contentManager"> The contentManager to act on. </param>
+             <param name="contentFolder">  Pathname of the content folder. </param>
+             <param name="wildcard">       The wildcard. </param>
+            
+             <returns>
+             The list content.
+             </returns>
+        </member>
+    </members>
+</doc>

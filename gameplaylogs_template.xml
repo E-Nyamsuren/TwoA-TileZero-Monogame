@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GameplaysData>
+  <Adaptation AdaptationID="Game difficulty - Player skill">
+    <Game GameID="Qwirkle">
+      <!--<Gameplay PlayerID="Ginormous noob" ScenarioID="Medium Color AI" Timestamp="2015/24/21 10:24:25">
+        <RT>300000</RT>
+        <Accuracy>0</Accuracy>
+        <PlayerRating>0.9</PlayerRating>
+        <ScenarioRating>2</ScenarioRating>
+      </Gameplay>-->
+    </Game>
+	<Game GameID="DynamicQwirkle" />
+	<Game GameID="Stickers" />
+  </Adaptation>
+</GameplaysData>

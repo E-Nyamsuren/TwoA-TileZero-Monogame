@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>WindowsGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/Score.spritefont</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/Logo.png</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/cursor.png</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/cell.png</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/00_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/01_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/02_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/03_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/04_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/05_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/10_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/11_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/12_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/13_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/14_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/15_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/20_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/21_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/22_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/23_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/24_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/25_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/30_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/31_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/32_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/33_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/34_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/35_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/40_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/41_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/42_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/43_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/44_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/45_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/50_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/51_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/52_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/53_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/54_15_50.jpg</File>
+    <File>C:/Users/veg/Documents/Visual Studio 2013/Projects/DropEm_MonoGame/DropEm_MonoGame/Content/55_15_50.jpg</File>
+  </SourceFiles>
+</SourceFileCollection>

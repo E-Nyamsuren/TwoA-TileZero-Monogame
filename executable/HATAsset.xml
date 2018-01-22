@@ -1,0 +1,928 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HATAsset</name>
+    </assembly>
+    <members>
+        <member name="M:HAT.DifficultyAdapter.#ctor(HAT.HATAsset)">
+             <summary>
+             Initializes a new instance of the HAT.DifficultyAdapter class.
+             
+             Assign default values if max play frequency and max non-play delay values
+             are not provided.
+             
+             Add a reference to the HATAsset so we can use it.
+             </summary>
+            
+             <remarks>
+             Alternative for the asset parameter would be to ask the AssetManager for
+             a reference.
+             </remarks>
+            
+             <param name="asset"> The asset. </param>
+        </member>
+        <member name="M:HAT.DifficultyAdapter.CalculateTargetScenarioID(System.String,System.String,System.String)">
+             <summary>
+             Target scenario identifier.
+             </summary>
+            
+             <exception cref="T:System.ArgumentException">    Thrown when one or more arguments
+                                                     have unsupported or illegal values. </exception>
+            
+             <param name="adaptID">  Identifier for the adapt. </param>
+             <param name="gameID">   Identifier for the game. </param>
+             <param name="playerID"> Identifier for the player. </param>
+            
+             <returns>
+             A string.
+             </returns>
+        </member>
+        <member name="M:HAT.DifficultyAdapter.UpdateRatings(System.String,System.String,System.String,System.String,System.Double,System.Double)">
+             <summary>
+             Updates the ratings.
+             </summary>
+            
+             <param name="adaptID">       Identifier for the adapt. </param>
+             <param name="gameID">        Identifier for the game. </param>
+             <param name="playerID">      Identifier for the player. </param>
+             <param name="scenarioID">    Identifier for the scenario. </param>
+             <param name="rt">            The right. </param>
+             <param name="correctAnswer"> The correct answer. </param>
+        </member>
+        <member name="M:HAT.DifficultyAdapter.calcActualScore(System.Double,System.Double,System.Double)">
+             <summary>
+             Calculates actual score given success/failure outcome and response time.
+             </summary>
+            
+             <param name="correctAnswer">   The correct answer. </param>
+             <param name="responseTime">    a response time in milliseconds. </param>
+             <param name="itemMaxDuration">  maximum duration of time given to a
+                                             player to provide an answer. </param>
+            
+             <returns>
+             actual score as a double.
+             </returns>
+            
+             ### <param name="correctAnswerFlag">    should be either 0, for failure,
+                                                     or 1 for success. </param>
+        </member>
+        <member name="M:HAT.DifficultyAdapter.calcBeta(System.Double,System.Double,System.Double,System.Double)">
+             <summary>
+             Calculates a new beta rating.
+             </summary>
+            
+             <param name="currBeta">    current beta rating. </param>
+             <param name="betaKFctr">   K factor for the beta rating. </param>
+             <param name="actualScore"> actual performance score. </param>
+             <param name="expectScore"> expected performance score. </param>
+            
+             <returns>
+             a double value for new beta rating.
+             </returns>
+        </member>
+        <member name="M:HAT.DifficultyAdapter.calcBetaKFctr(System.Double,System.Double)">
+            <summary>
+            Calculates a new K factor for the beta rating
+            </summary>
+            <param name="currThetaU">current uncertainty fot the theta rating</param>
+            <param name="currBetaU">current uncertainty for the beta rating</param>
+            <returns>a double value of a new K factor for the beta rating</returns>
+        </member>
+        <member name="M:HAT.DifficultyAdapter.calcBetaUncertainty(System.Double,System.Double)">
+             <summary>
+             Calculates a new uncertainty for the beta rating.
+             </summary>
+            
+             <param name="currBetaU">        current uncertainty value for the beta
+                                             rating. </param>
+             <param name="currDelayCount">   the current number of consecutive days
+                                             the item has not beein played. </param>
+            
+             <returns>
+             a new uncertainty value for the beta rating.
+             </returns>
+        </member>
+        <member name="M:HAT.DifficultyAdapter.calcExpectedScore(System.Double,System.Double,System.Double)">
+             <summary>
+             Calculates expected score given player's skill rating and item's
+             difficulty rating.
+             </summary>
+            
+             <param name="playerTheta">     player's skill rating. </param>
+             <param name="itemBeta">        item's difficulty rating. </param>
+             <param name="itemMaxDuration">  maximum duration of time given to a
+                                             player to provide an answer. </param>
+            
+             <returns>
+             expected score as a double.
+             </returns>
+        </member>
+        <member name="M:HAT.DifficultyAdapter.calcTheta(System.Double,System.Double,System.Double,System.Double)">
+             <summary>
+             Calculates a new theta rating.
+             </summary>
+            
+             <param name="currTheta">   current theta rating. </param>
+             <param name="thetaKFctr">  K factor for the theta rating. </param>
+             <param name="actualScore"> actual performance score. </param>
+             <param name="expectScore"> expected performance score. </param>
+            
+             <returns>
+             a double value for the new theta rating.
+             </returns>
+        </member>
+        <member name="M:HAT.DifficultyAdapter.calcThetaKFctr(System.Double,System.Double)">
+            <summary>
+            Calculates a new K factor for theta rating
+            </summary>
+            <param name="currThetaU">current uncertainty for the theta rating</param>
+            <param name="currBetaU">current uncertainty for the beta rating</param>
+            <returns>a double value of a new K factor for the theta rating</returns>
+        </member>
+        <member name="M:HAT.DifficultyAdapter.calcThetaUncertainty(System.Double,System.Double)">
+             <summary>
+             Calculates a new uncertainty for the theta rating.
+             </summary>
+            
+             <param name="currThetaU">       current uncertainty value for theta
+                                             rating. </param>
+             <param name="currDelayCount">   the current number of consecutive days
+                                             the player has not played. </param>
+            
+             <returns>
+             a new uncertainty value for theta rating.
+             </returns>
+        </member>
+        <member name="M:HAT.DifficultyAdapter.getDiscriminationParam(System.Double)">
+             <summary>
+             Calculates discrimination parameter a_i necessary to calculate expected
+             and actual scores.
+             </summary>
+            
+             <param name="itemMaxDuration">  maximum duration of time given to a
+                                             player to provide an answer; should be
+                                             player. </param>
+            
+             <returns>
+             discrimination parameter a_i as double number.
+             </returns>
+        </member>
+        <member name="M:HAT.DifficultyAdapter.TargetBeta(System.Double)">
+             <summary>
+             Target beta.
+             </summary>
+            
+             <param name="theta"> The theta. </param>
+            
+             <returns>
+             A double.
+             </returns>
+        </member>
+        <member name="M:HAT.DifficultyAdapter.validateItemMaxDuration(System.Double)">
+             <summary>
+             Tests the validity of the value representing the max amount of time to
+             respond.
+             </summary>
+            
+             <exception cref="T:System.ArgumentException">    Thrown when one or more arguments
+                                                     have unsupported or illegal values. </exception>
+            
+             <param name="itemMaxDuration"> . </param>
+        </member>
+        <member name="M:HAT.DifficultyAdapter.validateResponseTime(System.Double)">
+             <summary>
+             Tests the validity of the value representing the response time.
+             </summary>
+            
+             <exception cref="T:System.ArgumentException">    Thrown when one or more arguments
+                                                     have unsupported or illegal values. </exception>
+            
+             <param name="responseTime"> . </param>
+        </member>
+        <member name="P:HAT.DifficultyAdapter.KConst">
+             <summary>
+             Getter/setter for the K constant.
+             </summary>
+            
+             <exception cref="T:System.ArgumentException">    Thrown when one or more arguments
+                                                     have unsupported or illegal values. </exception>
+            
+             <value>
+             The k constant.
+             </value>
+        </member>
+        <member name="P:HAT.DifficultyAdapter.KDown">
+             <summary>
+             Getter/setter for the downward uncertainty weight.
+             </summary>
+            
+             <exception cref="T:System.ArgumentException">    Thrown when one or more arguments
+                                                     have unsupported or illegal values. </exception>
+            
+             <value>
+             The downward uncertainty weight.
+             </value>
+        </member>
+        <member name="P:HAT.DifficultyAdapter.KUp">
+             <summary>
+             Getter/setter for the upward uncertainty weight.
+             </summary>
+            
+             <exception cref="T:System.ArgumentException">    Thrown when one or more arguments
+                                                     have unsupported or illegal values. </exception>
+            
+             <value>
+             The upward uncertainty weight.
+             </value>
+        </member>
+        <member name="P:HAT.DifficultyAdapter.MaxDelay">
+             <summary>
+             Gets or sets the maximum delay.
+             </summary>
+            
+             <exception cref="T:System.ArgumentException">    Thrown when one or more arguments
+                                                     have unsupported or illegal values. </exception>
+            
+             <value>
+             The maximum delay.
+             </value>
+        </member>
+        <member name="P:HAT.DifficultyAdapter.MaxPlay">
+             <summary>
+             Gets or sets the maximum play.
+             </summary>
+            
+             <exception cref="T:System.ArgumentException">    Thrown when one or more arguments
+                                                     have unsupported or illegal values. </exception>
+            
+             <value>
+             The maximum play.
+             </value>
+        </member>
+        <member name="P:HAT.DifficultyAdapter.ProvDate">
+             <summary>
+             Gets the provisional play date.
+             </summary>
+            
+             <value>
+             The provisional play date.
+             </value>
+        </member>
+        <member name="P:HAT.DifficultyAdapter.ProvTheta">
+             <summary>
+             Gets the prov theta.
+             </summary>
+            
+             <value>
+             The prov theta.
+             </value>
+        </member>
+        <member name="P:HAT.DifficultyAdapter.TargetDistributedMean">
+             <summary>
+             Gets target distributed mean.
+             </summary>
+            
+             <value>
+             The target distributed mean.
+             </value>
+        </member>
+        <member name="P:HAT.DifficultyAdapter.ProvU">
+             <summary>
+             Gets or sets the provisional uncertainty.
+             </summary>
+            
+             <exception cref="T:System.ArgumentException">    Thrown when one or more arguments
+                                                     have unsupported or illegal values. </exception>
+            
+             <value>
+             The provisional uncertainty.
+             </value>
+        </member>
+        <member name="T:HAT.HATAsset">
+            <summary>
+            A hat asset.
+            </summary>
+        </member>
+        <member name="F:HAT.HATAsset.settings">
+            <summary>
+            Options for controlling the operation.
+            </summary>
+        </member>
+        <member name="F:HAT.HATAsset.adapter">
+            <summary>
+            The adapter.
+            </summary>
+        </member>
+        <member name="M:HAT.HATAsset.#ctor">
+            <summary>
+            Initializes a new instance of the HAT.HATAsset class.
+            </summary>
+        </member>
+        <member name="M:HAT.HATAsset.#ctor(AssetPackage.IBridge)">
+             <summary>
+             Initializes a new instance of the HAT.HATAsset class.
+             </summary>
+            
+             <param name="bridge"> The bridge. </param>
+        </member>
+        <member name="M:HAT.HATAsset.PlayerSetting``1(System.String,System.String,System.String,System.String)">
+             <summary>
+             Get a Property of the Player setting.
+             </summary>
+            
+             <exception cref="T:System.ArgumentException">    Thrown when one or more arguments
+                                                     have unsupported or illegal values. </exception>
+            
+             <typeparam name="T"> Generic type parameter. </typeparam>
+             <param name="adaptID">  Identifier for the adapt. </param>
+             <param name="gameID">   Identifier for the game. </param>
+             <param name="playerID"> Identifier for the player. </param>
+             <param name="item">     The item. </param>
+            
+             <returns>
+             A T.
+             </returns>
+        </member>
+        <member name="M:HAT.HATAsset.PlayerSetting``1(System.String,System.String,System.String,System.String,``0)">
+             <summary>
+             Set a Property of the Player setting.
+             </summary>
+            
+             <typeparam name="T"> Generic type parameter. </typeparam>
+             <param name="adaptID">  Identifier for the adapt. </param>
+             <param name="gameID">   Identifier for the game. </param>
+             <param name="playerID"> Identifier for the player. </param>
+             <param name="item">     The item. </param>
+             <param name="value">    The value. </param>
+        </member>
+        <member name="M:HAT.HATAsset.ScenarioSetting``1(System.String,System.String,System.String,System.String)">
+             <summary>
+             Get a Property of the Scenario setting.
+             </summary>
+            
+             <exception cref="T:System.ArgumentException">    Thrown when one or more arguments
+                                                     have unsupported or illegal values. </exception>
+            
+             <typeparam name="T"> Generic type parameter. </typeparam>
+             <param name="adaptID">    Identifier for the adapt. </param>
+             <param name="gameID">     Identifier for the game. </param>
+             <param name="scenarioID"> Identifier for the scenario. </param>
+             <param name="item">       The item. </param>
+            
+             <returns>
+             A T.
+             </returns>
+        </member>
+        <member name="M:HAT.HATAsset.ScenarioSetting``1(System.String,System.String,System.String,System.String,``0)">
+             <summary>
+             Set a Property of the Scenario setting.
+             </summary>
+            
+             <typeparam name="T"> Generic type parameter. </typeparam>
+             <param name="adaptID">    Identifier for the adapt. </param>
+             <param name="gameID">     Identifier for the game. </param>
+             <param name="scenarioID"> Identifier for the scenario. </param>
+             <param name="item">       The item. </param>
+        </member>
+        <member name="M:HAT.HATAsset.AllScenariosIDs(System.String,System.String)">
+             <summary>
+             Gets a list containing all scenarios IDs.
+             </summary>
+            
+             <param name="adaptID"> Identifier for the adapt. </param>
+             <param name="gameID">  Identifier for the game. </param>
+            
+             <returns>
+             all scenarios.
+             </returns>
+        </member>
+        <member name="M:HAT.HATAsset.TargetScenarioID(System.String,System.String,System.String)">
+             <summary>
+             Get the Target scenario ID from the adapter.
+             </summary>
+            
+             <param name="adaptID">  Identifier for the adapt. </param>
+             <param name="gameID">   Identifier for the game. </param>
+             <param name="playerID"> Identifier for the player. </param>
+            
+             <returns>
+             A string.
+             </returns>
+        </member>
+        <member name="M:HAT.HATAsset.UpdateRatings(System.String,System.String,System.String,System.String,System.Double,System.Double)">
+             <summary>
+             Updates the ratings of the adapter.
+             </summary>
+            
+             <param name="adaptID">       Identifier for the adapt. </param>
+             <param name="gameID">        Identifier for the game. </param>
+             <param name="playerID">      Identifier for the player. </param>
+             <param name="scenarioID">    Identifier for the scenario. </param>
+             <param name="rt">            The right. </param>
+             <param name="correctAnswer"> The correct answer. </param>
+        </member>
+        <member name="M:HAT.HATAsset.CurrentAccuracy(System.String,System.String,System.String)">
+             <summary>
+             Current accuracy.
+             </summary>
+            
+             <param name="adaptID">  Identifier for the adapt. </param>
+             <param name="gameID">   Identifier for the game. </param>
+             <param name="playerID"> Identifier for the player. </param>
+            
+             <returns>
+             A double.
+             </returns>
+        </member>
+        <member name="M:HAT.HATAsset.CreateNewRecord(System.String,System.String,System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.DateTime)">
+             <summary>
+             Creates new record to the game log.
+             </summary>
+            
+             <param name="adaptID">        Identifier for the adapt. </param>
+             <param name="gameID">         Identifier for the game. </param>
+             <param name="playerID">       Identifier for the player. </param>
+             <param name="scenarioID">     Identifier for the scenario. </param>
+             <param name="rt">             The right. </param>
+             <param name="accuracy">       The correct answer. </param>
+             <param name="userRating">     The player new rating. </param>
+             <param name="scenarioRating"> The scenario new rating. </param>
+             <param name="timestamp">      The current date time. </param>
+        </member>
+        <member name="M:HAT.HATAsset.LogToConsole(System.ConsoleColor,System.String)">
+             <summary>
+             Logs to ConsoleDialog.
+             </summary>
+            
+             <param name="color"> The color. </param>
+             <param name="msg">   The message. </param>
+        </member>
+        <member name="P:HAT.HATAsset.Settings">
+             <summary>
+             Gets or sets options for controlling the operation.
+             </summary>
+            
+             <remarks>   Besides the toXml() and fromXml() methods, we never use this
+                         property but use
+                            it's correctly typed backing field 'settings' instead. </remarks>
+             <remarks>   This property should go into each asset having Settings of
+                         its own. </remarks>
+             <remarks>   The actual class used should be derived from BaseAsset (and
+                         not directly from ISetting). </remarks>
+            
+             <value>
+             The settings.
+             </value>
+        </member>
+        <member name="T:HAT.HATAsset.HATMode">
+            <summary>
+            Values that represent hat modes.
+            </summary>
+        </member>
+        <member name="T:HAT.HATAssetSettings">
+            <summary>
+            A hat asset settings.
+            </summary>
+        </member>
+        <member name="M:HAT.HATAssetSettings.#ctor">
+            <summary>
+            Initializes a new instance of the asset_proof_of_concept_demo_CSharp.AssetSettings class.
+            </summary>
+        </member>
+        <member name="P:HAT.HATAssetSettings.Mode">
+             <summary>
+             Gets or sets the mode.
+             </summary>
+            
+             <value>
+             The mode.
+             </value>
+        </member>
+        <member name="P:HAT.HATAssetSettings.Players">
+             <summary>
+             Gets or sets the string[].
+             </summary>
+            
+             <value>
+             The scenarios.
+             </value>
+        </member>
+        <member name="P:HAT.HATAssetSettings.Scenarios">
+             <summary>
+             Gets or sets the Scenarios[].
+             </summary>
+            
+             <value>
+             The scenarios.
+             </value>
+        </member>
+        <member name="T:HAT.HATPlayer">
+            <summary>
+            A hat player.
+            </summary>
+        </member>
+        <member name="M:HAT.HATPlayer.#ctor">
+            <summary>
+            Initializes a new instance of the HAT.HATPlayer class.
+            </summary>
+        </member>
+        <member name="P:HAT.HATPlayer.AdaptationID">
+             <summary>
+             Gets the identifier of the adaptation.
+             </summary>
+            
+             <value>
+             The identifier of the adaptation.
+             </value>
+        </member>
+        <member name="P:HAT.HATPlayer.KFactor">
+             <summary>
+             Gets the factor.
+             </summary>
+            
+             <value>
+             The k factor.
+             </value>
+        </member>
+        <member name="P:HAT.HATPlayer.LastPlayed">
+             <summary>
+             Gets the Date/Time of the last played.
+             </summary>
+            
+             <value>
+             The last played.
+             </value>
+        </member>
+        <member name="P:HAT.HATPlayer.PlayCount">
+             <summary>
+             Gets the number of plays.
+             </summary>
+            
+             <value>
+             The number of plays.
+             </value>
+        </member>
+        <member name="P:HAT.HATPlayer.PlayerID">
+             <summary>
+             Gets or sets the identifier of the player.
+             </summary>
+            
+             <value>
+             The identifier of the player.
+             </value>
+        </member>
+        <member name="P:HAT.HATPlayer.Rating">
+             <summary>
+             Gets the rating.
+             </summary>
+            
+             <value>
+             The rating.
+             </value>
+        </member>
+        <member name="P:HAT.HATPlayer.Uncertainty">
+             <summary>
+             Gets the uncertainty.
+             </summary>
+            
+             <value>
+             The uncertainty.
+             </value>
+        </member>
+        <member name="T:HAT.HATScenario">
+            <summary>
+            A hat scenario.
+            </summary>
+        </member>
+        <member name="M:HAT.HATScenario.#ctor">
+            <summary>
+            Initializes a new instance of the HAT.HATScenario class.
+            </summary>
+        </member>
+        <member name="P:HAT.HATScenario.AdaptationID">
+             <summary>
+             Gets the identifier of the adaptation.
+             </summary>
+            
+             <value>
+             The identifier of the adaptation.
+             </value>
+        </member>
+        <member name="P:HAT.HATScenario.KFactor">
+             <summary>
+             Gets the factor.
+             </summary>
+            
+             <value>
+             The k factor.
+             </value>
+        </member>
+        <member name="P:HAT.HATScenario.LastPlayed">
+             <summary>
+             Gets the Date/Time of the last played.
+             </summary>
+            
+             <value>
+             The last played.
+             </value>
+        </member>
+        <member name="P:HAT.HATScenario.PlayCount">
+             <summary>
+             Gets the number of plays.
+             </summary>
+            
+             <value>
+             The number of plays.
+             </value>
+        </member>
+        <member name="P:HAT.HATScenario.Rating">
+             <summary>
+             Gets the rating.
+             </summary>
+            
+             <value>
+             The rating.
+             </value>
+        </member>
+        <member name="P:HAT.HATScenario.ScenarioID">
+             <summary>
+             Gets the identifier of the scenario.
+             </summary>
+            
+             <value>
+             The identifier of the scenario.
+             </value>
+        </member>
+        <member name="P:HAT.HATScenario.TimeLimit">
+             <summary>
+             Gets the time limit.
+             </summary>
+            
+             <value>
+             The time limit.
+             </value>
+        </member>
+        <member name="P:HAT.HATScenario.Uncertainty">
+             <summary>
+             Gets the uncertainty.
+             </summary>
+            
+             <value>
+             The uncertainty.
+             </value>
+        </member>
+        <member name="T:Swiss.ObjectUtils">
+            <summary>
+            See http://forums.asp.net/t/1321907.aspx
+            
+            Usage: string pricePropertyName = ObjectUtils.GetMemberName&lt;IProduct&gt;(p =&gt; p.Price);
+            
+            This work had no explicit license specified.
+            </summary>
+        </member>
+        <member name="M:Swiss.ObjectUtils.GetMemberName``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            This does some magic, it returns the name of a property so it is no longer 
+            a problematic string value problematic when refactoring.
+            
+            Usage: string pricePropertyName = ObjectUtils.GetMemberName&lt;IProduct&gt;(p =&gt; p.Price);
+            </summary>
+            <typeparam name="T">The type to which the property belongs</typeparam>
+            <param name="action">-</param>
+            <returns>The property name</returns>
+        </member>
+        <member name="T:HAT.SimpleRNG">
+            <summary>
+            A simple random number generator.
+            </summary>
+        </member>
+        <member name="M:HAT.SimpleRNG.#cctor">
+            <summary>
+            Initializes static members of the HAT.SimpleRNG class.
+            </summary>
+        </member>
+        <member name="M:HAT.SimpleRNG.SetSeed(System.UInt32,System.UInt32)">
+             <summary>
+             The random generator seed can be set three ways: 1) specifying two non-
+             zero unsigned integers 2) specifying one non-zero unsigned integer and
+             taking a default value for the second 3) setting the seed from the system
+             time.
+             </summary>
+            
+             <param name="u"> The uint to process. </param>
+             <param name="v"> The uint to process. </param>
+        </member>
+        <member name="M:HAT.SimpleRNG.SetSeed(System.UInt32)">
+             <summary>
+             The random generator seed can be set three ways: 1) specifying two non-
+             zero unsigned integers 2) specifying one non-zero unsigned integer and
+             taking a default value for the second 3) setting the seed from the system
+             time.
+             </summary>
+            
+             <param name="u"> The uint to process. </param>
+        </member>
+        <member name="M:HAT.SimpleRNG.SetSeedFromSystemTime">
+            <summary>
+            Sets seed from system time.
+            </summary>
+        </member>
+        <member name="M:HAT.SimpleRNG.GetUniform">
+             <summary>
+             Produce a uniform random sample from the open interval (0, 1). The method
+             will not return either end point.
+             </summary>
+            
+             <returns>
+             The uniform.
+             </returns>
+        </member>
+        <member name="M:HAT.SimpleRNG.GetUint">
+             <summary>
+             This is the heart of the generator. It uses George Marsaglia's MWC
+             algorithm to produce an unsigned integer.
+             
+             See http://www.bobwheeler.com/statistics/Password/MarsagliaPost.txt.
+             </summary>
+            
+             <returns>
+             The uint.
+             </returns>
+        </member>
+        <member name="M:HAT.SimpleRNG.GetNormal">
+             <summary>
+             Get normal (Gaussian) random sample with mean 0 and standard deviation 1.
+             </summary>
+            
+             <returns>
+             The normal.
+             </returns>
+        </member>
+        <member name="M:HAT.SimpleRNG.GetNormal(System.Double,System.Double)">
+             <summary>
+             Get normal (Gaussian) random sample with specified mean and standard
+             deviation.
+             </summary>
+            
+             <exception cref="T:System.ArgumentOutOfRangeException">  Thrown when one or more
+                                                             arguments are outside the
+                                                             required range. </exception>
+            
+             <param name="mean">              The mean. </param>
+             <param name="standardDeviation"> The standard deviation. </param>
+            
+             <returns>
+             The normal.
+             </returns>
+        </member>
+        <member name="M:HAT.SimpleRNG.GetExponential">
+             <summary>
+             Get exponential random sample with mean 1.
+             </summary>
+            
+             <returns>
+             The exponential.
+             </returns>
+        </member>
+        <member name="M:HAT.SimpleRNG.GetExponential(System.Double)">
+             <summary>
+             Get exponential random sample with specified mean.
+             </summary>
+            
+             <exception cref="T:System.ArgumentOutOfRangeException">  Thrown when one or more
+                                                             arguments are outside the
+                                                             required range. </exception>
+            
+             <param name="mean"> The mean. </param>
+            
+             <returns>
+             The exponential.
+             </returns>
+        </member>
+        <member name="M:HAT.SimpleRNG.GetGamma(System.Double,System.Double)">
+             <summary>
+             Gets a gamma.
+             </summary>
+            
+             <exception cref="T:System.ArgumentOutOfRangeException">  Thrown when one or more
+                                                             arguments are outside the
+                                                             required range. </exception>
+            
+             <param name="shape"> The shape. </param>
+             <param name="scale"> The scale. </param>
+            
+             <returns>
+             The gamma.
+             </returns>
+        </member>
+        <member name="M:HAT.SimpleRNG.GetChiSquare(System.Double)">
+             <summary>
+             Gets chi square.
+             </summary>
+            
+             <param name="degreesOfFreedom"> The degrees of freedom. </param>
+            
+             <returns>
+             The chi square.
+             </returns>
+        </member>
+        <member name="M:HAT.SimpleRNG.GetInverseGamma(System.Double,System.Double)">
+             <summary>
+             Gets inverse gamma.
+             </summary>
+            
+             <param name="shape"> The shape. </param>
+             <param name="scale"> The scale. </param>
+            
+             <returns>
+             The inverse gamma.
+             </returns>
+        </member>
+        <member name="M:HAT.SimpleRNG.GetWeibull(System.Double,System.Double)">
+             <summary>
+             Gets a weibull.
+             </summary>
+            
+             <exception cref="T:System.ArgumentOutOfRangeException">  Thrown when one or more
+                                                             arguments are outside the
+                                                             required range. </exception>
+            
+             <param name="shape"> The shape. </param>
+             <param name="scale"> The scale. </param>
+            
+             <returns>
+             The weibull.
+             </returns>
+        </member>
+        <member name="M:HAT.SimpleRNG.GetCauchy(System.Double,System.Double)">
+             <summary>
+             Gets a cauchy.
+             </summary>
+            
+             <exception cref="T:System.ArgumentException">    Thrown when one or more arguments
+                                                     have unsupported or illegal values. </exception>
+            
+             <param name="median"> The median. </param>
+             <param name="scale">  The scale. </param>
+            
+             <returns>
+             The cauchy.
+             </returns>
+        </member>
+        <member name="M:HAT.SimpleRNG.GetStudentT(System.Double)">
+             <summary>
+             Gets student.
+             </summary>
+            
+             <exception cref="T:System.ArgumentException">    Thrown when one or more arguments
+                                                     have unsupported or illegal values. </exception>
+            
+             <param name="degreesOfFreedom"> The degrees of freedom. </param>
+            
+             <returns>
+             The student.
+             </returns>
+        </member>
+        <member name="M:HAT.SimpleRNG.GetLaplace(System.Double,System.Double)">
+             <summary>
+             The Laplace distribution is also known as the double exponential
+             distribution.
+             </summary>
+            
+             <param name="mean">  The mean. </param>
+             <param name="scale"> The scale. </param>
+            
+             <returns>
+             The laplace.
+             </returns>
+        </member>
+        <member name="M:HAT.SimpleRNG.GetLogNormal(System.Double,System.Double)">
+             <summary>
+             Gets log normal.
+             </summary>
+            
+             <param name="mu">    The mu. </param>
+             <param name="sigma"> The sigma. </param>
+            
+             <returns>
+             The log normal.
+             </returns>
+        </member>
+        <member name="M:HAT.SimpleRNG.GetBeta(System.Double,System.Double)">
+             <summary>
+             Gets a beta.
+             </summary>
+            
+             <exception cref="T:System.ArgumentOutOfRangeException">  Thrown when one or more
+                                                             arguments are outside the
+                                                             required range. </exception>
+            
+             <param name="a"> The double to process. </param>
+             <param name="b"> The double to process. </param>
+            
+             <returns>
+             The beta.
+             </returns>
+        </member>
+    </members>
+</doc>
